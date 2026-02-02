@@ -2,134 +2,174 @@
 <html lang="az">
 <head>
 <meta charset="UTF-8">
-<title>Takibcial • Premium SMM</title>
+<title>Takibcial • Premium SMM Panel</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-/* CSS STİLLƏRİ */
+/* ================= RESET & STYLE ================= */
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Segoe UI',sans-serif; background:#020b1c; color:#fff; overflow-x:hidden;}
-header{padding:25px; text-align:center; font-size:28px; font-weight:700; color:#4dd2ff;}
+body{
+    font-family:'Segoe UI',sans-serif;
+    background:#020b1c;
+    color:#fff;
+    padding-bottom: 50px;
+}
 
-/* MENYU */
+header{
+    padding:30px;
+    text-align:center;
+    font-size:30px;
+    font-weight:700;
+    color:#4dd2ff;
+    letter-spacing:1px;
+}
+
+/* ================= MENYU (TABS) ================= */
 .tabs-menu {
-    display: flex; justify-content: center; gap: 10px; padding: 15px; 
-    position: sticky; top: 0; background: rgba(2, 11, 28, 0.95); z-index: 1000;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    background: rgba(2, 11, 28, 0.9);
+    z-index: 1000;
+    backdrop-filter: blur(10px);
 }
+
 .tab-btn {
-    padding: 10px 18px; border: 1.5px solid #4dd2ff; background: transparent;
-    color: #4dd2ff; border-radius: 30px; cursor: pointer; font-weight: 600; transition: 0.3s;
+    padding: 12px 20px;
+    border: 1px solid #4dd2ff;
+    background: transparent;
+    color: #4dd2ff;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
 }
-.tab-btn.active { background: #4dd2ff; color: #020b1c; box-shadow: 0 0 15px #4dd2ff; }
 
-/* KATEQORİYA DÜYMƏLƏRİ (Daxili Naviqasiya) */
-.sub-nav { display: flex; justify-content: center; gap: 10px; margin: 20px 0; flex-wrap: wrap; }
-.sub-nav a { font-size: 12px; color: #aaa; text-decoration: none; border: 1px solid #333; padding: 5px 12px; border-radius: 15px; }
+.tab-btn.active {
+    background: #4dd2ff;
+    color: #020b1c;
+}
 
-/* PAKETLƏR */
-.service-section { display: none; animation: fadeIn 0.4s ease; }
-.service-section.active { display: block; }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+/* ================= SECTIONLAR ================= */
+.service-section {
+    display: none; /* İlkin olaraq hamısı gizli olur */
+    animation: fadeIn 0.5s ease;
+}
 
-.section-title { text-align: center; font-size: 20px; margin: 40px 0 15px; color: #4dd2ff; text-transform: uppercase; }
-.container { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; padding: 20px; max-width: 1200px; margin: 0 auto; }
+.service-section.active {
+    display: block; /* Yalnız aktiv olan görünür */
+}
 
-.card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 15px; padding: 20px; text-align: center; }
-.card i { font-size: 25px; margin-bottom: 10px; }
-.ig {color: #ff5ccd;} .tk {color: #00f2ea;}
-.card h3 { font-size: 14px; margin-bottom: 5px; }
-.price { color: #00ffee; font-weight: 700; font-size: 18px; margin-bottom: 10px; }
-.btn { display: block; background: #0072ff; color: #fff; text-decoration: none; padding: 8px; border-radius: 5px; font-size: 12px; font-weight: 600; }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.section-title {
+    text-align: center;
+    font-size: 22px;
+    margin: 30px 0 15px;
+    color: #eee;
+}
+
+/* ================= GRID & CARDS ================= */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 15px;
+    padding: 0 20px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.card:hover { border-color: #4dd2ff; transform: scale(1.02); }
+
+.ig {color: #ff5ccd;}
+.tk {color: #00f2ea;}
+.yt {color: #ff4d4d;}
+
+.card h3 { font-size: 15px; margin-bottom: 8px; }
+.price { color: #00ffee; font-weight: 700; font-size: 18px; margin-bottom: 12px; }
+
+.btn {
+    display: block;
+    text-decoration: none;
+    background: #0072ff;
+    color: #fff;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+}
 
 @media(min-width: 768px) { .container { grid-template-columns: repeat(4, 1fr); } }
-footer { text-align: center; padding: 30px; color: #444; }
+
+footer { text-align: center; padding: 20px; color: #555; font-size: 12px; }
 </style>
 </head>
 <body>
 
-<header>⚡ Takibcial SMM</header>
+<header>⚡ Takibcial</header>
 
 <div class="tabs-menu">
     <button class="tab-btn active" onclick="openTab('instagram')">Instagram</button>
     <button class="tab-btn" onclick="openTab('tiktok')">TikTok</button>
+    <button class="tab-btn" onclick="openTab('youtube')">YouTube</button>
 </div>
 
 <div id="instagram" class="service-section active">
     
-    <div class="section-title"><i class="fa-brands fa-instagram"></i> Instagram Takibçi</div>
+    <div class="section-title">Instagram Takibçi</div>
     <div class="container">
-        <div class="card"><h3>1000 Takibçi</h3><div class="price">6 AZN</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>2000 Takibçi</h3><div class="price">12 AZN</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>3000 Takibçi</h3><div class="price">18 AZN</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>4000 Takibçi</h3><div class="price">24 AZN</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>5000 Takibçi</h3><div class="price">28 AZN</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>10.000 Takibçi</h3><div class="price">55 AZN</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>20.000 Takibçi</h3><div class="price">90 AZN</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>50.000 Takibçi</h3><div class="price">170 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><i class="fa-brands fa-instagram ig"></i><h3>1000 Takibçi</h3><div class="price">6 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><i class="fa-brands fa-instagram ig"></i><h3>2000 Takibçi</h3><div class="price">12 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><i class="fa-brands fa-instagram ig"></i><h3>3000 Takibçi</h3><div class="price">18 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><i class="fa-brands fa-instagram ig"></i><h3>4000 Takibçi</h3><div class="price">24 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><i class="fa-brands fa-instagram ig"></i><h3>5000 Takibçi</h3><div class="price">28 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><i class="fa-brands fa-instagram ig"></i><h3>10k Takibçi</h3><div class="price">55 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><i class="fa-brands fa-instagram ig"></i><h3>20k Takibçi</h3><div class="price">90 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><i class="fa-brands fa-instagram ig"></i><h3>50k Takibçi</h3><div class="price">170 AZN</div><a class="btn" href="#">Sifariş et</a></div>
     </div>
 
-    <div class="section-title"><i class="fa-solid fa-heart ig"></i> Instagram Bəyəni</div>
+    <div class="section-title">Instagram Bəyəni</div>
     <div class="container">
-        <div class="card"><h3>500 Bəyəni</h3><div class="price">- AZN</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>1000 Bəyəni</h3><div class="price">- AZN</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>Paket 3</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>Paket 4</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>Paket 5</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>Paket 6</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>Paket 7</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>Paket 8</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
-    </div>
-
-    <div class="section-title"><i class="fa-solid fa-eye ig"></i> Instagram Baxış / Kayd</div>
-    <div class="container">
-        <div class="card"><h3>1000 Baxış</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>5000 Baxış</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>Paket 3</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>Paket 4</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>Paket 5</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>Paket 6</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>Paket 7</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>Paket 8</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><i class="fa-solid fa-heart ig"></i><h3>500 Bəyəni</h3><div class="price">2 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><i class="fa-solid fa-heart ig"></i><h3>Paket 2</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><i class="fa-solid fa-heart ig"></i><h3>Paket 3</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><i class="fa-solid fa-heart ig"></i><h3>Paket 4</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><i class="fa-solid fa-heart ig"></i><h3>Paket 5</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><i class="fa-solid fa-heart ig"></i><h3>Paket 6</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><i class="fa-solid fa-heart ig"></i><h3>Paket 7</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><i class="fa-solid fa-heart ig"></i><h3>Paket 8</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
     </div>
 </div>
 
 <div id="tiktok" class="service-section">
-    
-    <div class="section-title"><i class="fa-brands fa-tiktok tk"></i> TikTok Takibçi</div>
+    <div class="section-title">TikTok Takibçi</div>
     <div class="container">
-        <div class="card"><h3>1000 Takibçi</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>Paket 2</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>Paket 3</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>Paket 4</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>Paket 5</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>Paket 6</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>Paket 7</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>Paket 8</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
-    </div>
+        <div class="card"><i class="fa-brands fa-tiktok tk"></i><h3>1000 Takibçi</h3><div class="price">10 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+        </div>
+</div>
 
-    <div class="section-title"><i class="fa-solid fa-heart tk"></i> TikTok Bəyəni</div>
+<div id="youtube" class="service-section">
+    <div class="section-title">YouTube Abunə</div>
     <div class="container">
-        <div class="card"><h3>1000 Bəyəni</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>Paket 2</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>Paket 3</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>Paket 4</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>Paket 5</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>Paket 6</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>Paket 7</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>Paket 8</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
-    </div>
-
-    <div class="section-title"><i class="fa-solid fa-play tk"></i> TikTok Baxış / Paylaşım</div>
-    <div class="container">
-        <div class="card"><h3>1000 Baxış</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>Paket 2</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>Paket 3</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>Paket 4</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>Paket 5</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>Paket 6</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>Paket 7</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
-        <div class="card"><h3>Paket 8</h3><div class="price">-</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><i class="fa-brands fa-youtube yt"></i><h3>100 Abunə</h3><div class="price">5 AZN</div><a class="btn" href="#">Sifariş et</a></div>
     </div>
 </div>
 
@@ -137,15 +177,21 @@ footer { text-align: center; padding: 30px; color: #444; }
 
 <script>
 function openTab(tabName) {
+    // Bütün sectionları gizlət
     let sections = document.getElementsByClassName("service-section");
-    for (let i = 0; i < sections.length; i++) { sections[i].classList.remove("active"); }
+    for (let i = 0; i < sections.length; i++) {
+        sections[i].classList.remove("active");
+    }
 
+    // Bütün düymələrin aktivliyini sil
     let buttons = document.getElementsByClassName("tab-btn");
-    for (let i = 0; i < buttons.length; i++) { buttons[i].classList.remove("active"); }
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove("active");
+    }
 
+    // Seçilən sectionu göstər və düyməni rənglə
     document.getElementById(tabName).classList.add("active");
     event.currentTarget.classList.add("active");
-    window.scrollTo(0,0);
 }
 </script>
 
