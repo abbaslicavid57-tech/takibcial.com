@@ -4,190 +4,248 @@
 <meta charset="UTF-8">
 <title>Takibcial • Premium SMM Panel</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
+/* ================= RESET & BASE ================= */
 *{margin:0;padding:0;box-sizing:border-box}
 body{
-font-family:'Segoe UI',sans-serif;
-background:linear-gradient(135deg,#06162f,#020b1c);
-color:#fff;min-height:100vh}
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(135deg,#06162f,#020b1c);
+    color:#fff;
+    line-height: 1.6;
+    min-height: 100vh;
+}
 
-/* HEADER */
-header{text-align:center;padding:20px;font-size:28px;font-weight:800;color:#4dd2ff}
-
-/* NAV */
+/* ================= HEADER & NAV ================= */
+header{
+    padding:20px;
+    text-align:center;
+    font-size:28px;
+    font-weight:800;
+    color:#4dd2ff;
+    text-transform: uppercase;
+    letter-spacing:2px;
+}
 nav{
-display:flex;justify-content:center;gap:10px;
-padding:10px;position:sticky;top:0;
-background:rgba(6,22,47,.95);z-index:1000}
-.tab-btn{
-padding:8px 18px;border:1px solid #4dd2ff;
-background:transparent;color:#4dd2ff;
-border-radius:20px;cursor:pointer;font-weight:600}
-.tab-btn.active{background:#4dd2ff;color:#020b1c}
+    display:flex;
+    justify-content:center;
+    flex-wrap: wrap;
+    gap:8px;
+    padding:12px;
+    position: sticky;
+    top: 0;
+    background: rgba(6, 22, 47, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(77, 210, 255, 0.2);
+}
+.tab-btn {
+    padding: 8px 16px;
+    border: 1px solid #4dd2ff;
+    background: transparent;
+    color: #4dd2ff;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+    font-size: 13px;
+}
+.tab-btn.active {
+    background: #4dd2ff;
+    color: #020b1c;
+    box-shadow: 0 0 15px rgba(77, 210, 255, 0.5);
+}
 
-/* WHEEL */
-#wheel-container{
-text-align:center;margin:20px auto;width:280px;
-padding:15px;background:rgba(255,255,255,.04);
-border-radius:20px;border:1px solid rgba(77,210,255,.2)}
-#wheel-box{position:relative;width:210px;height:210px;margin:auto;border-radius:50%;
-border:3px solid #4dd2ff;box-shadow:0 0 15px #4dd2ff}
-#wheel{
-width:100%;height:100%;border-radius:50%;
-background:conic-gradient(
-#ff5ccd 0 60deg,
-#00c6ff 60 120deg,
-#25d366 120 180deg,
-#ff4d4d 180 240deg,
-#f1c40f 240 300deg,
-#9b59b6 300 360deg);
-transition:transform 4s cubic-bezier(.15,0,.15,1)}
-.wheel-text span{
-position:absolute;width:50%;top:50%;left:50%;
-transform-origin:0 50%;text-align:right;
-padding-right:15px;font-weight:800}
-.wheel-text span:nth-child(1){transform:translateY(-50%) rotate(30deg)}
-.wheel-text span:nth-child(2){transform:translateY(-50%) rotate(90deg)}
-.wheel-text span:nth-child(3){transform:translateY(-50%) rotate(150deg)}
-.wheel-text span:nth-child(4){transform:translateY(-50%) rotate(210deg)}
-.wheel-text span:nth-child(5){transform:translateY(-50%) rotate(270deg)}
-.wheel-text span:nth-child(6){transform:translateY(-50%) rotate(330deg)}
-.wheel-pointer{
-position:absolute;top:-10px;left:50%;
-transform:translateX(-50%);
-border-left:12px solid transparent;
-border-right:12px solid transparent;
-border-top:20px solid #fff}
-#spin-btn{
-margin-top:15px;padding:10px 25px;
-background:#00ffee;border:none;border-radius:20px;
-font-weight:700;cursor:pointer;color:#020b1c}
+/* ================= NEON WHEEL ================= */
+#wheel-container {
+    text-align: center;
+    margin: 20px auto;
+    width: 280px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 20px;
+    border: 1px solid rgba(77, 210, 255, 0.2);
+}
+#wheel-box {
+    position: relative;
+    width: 210px;
+    height: 210px;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 3px solid #4dd2ff;
+    box-shadow: 0 0 15px #4dd2ff;
+}
+#wheel {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    transition: transform 4s cubic-bezier(.15,0,.15,1);
+    background: conic-gradient(#ff5ccd 0 60deg, #00c6ff 60 120deg, #25d366 120 180deg, #ff4d4d 180 240deg, #f1c40f 240 300deg, #9b59b6 300 360deg);
+}
+.wheel-text span {
+    position: absolute; width: 50%; top: 50%; left: 50%;
+    transform-origin: 0% 50%; text-align: right; padding-right: 15px;
+    font-weight: 800; font-size: 14px;
+}
+.wheel-text span:nth-child(1) { transform: translateY(-50%) rotate(30deg); }
+.wheel-text span:nth-child(2) { transform: translateY(-50%) rotate(90deg); }
+.wheel-text span:nth-child(3) { transform: translateY(-50%) rotate(150deg); }
+.wheel-text span:nth-child(4) { transform: translateY(-50%) rotate(210deg); }
+.wheel-text span:nth-child(5) { transform: translateY(-50%) rotate(270deg); }
+.wheel-text span:nth-child(6) { transform: translateY(-50%) rotate(330deg); }
 
-/* CONTENT */
-.platform-content{display:none}
-.platform-content.active{display:block}
-.section-title{text-align:center;margin:30px 0 15px;color:#4dd2ff}
+.wheel-pointer {
+    position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+    border-left: 12px solid transparent; border-right: 12px solid transparent; border-top: 20px solid #fff; z-index: 10;
+}
+#spin-btn { margin-top: 15px; padding: 10px 25px; background: #00ffee; border: none; border-radius: 20px; font-weight: 700; cursor: pointer; color: #020b1c; }
 
-/* GRID */
-.container{
-display:grid;grid-template-columns:repeat(2,1fr);
-gap:12px;padding:15px;max-width:1200px;margin:auto}
-@media(min-width:768px){
-.container{grid-template-columns:repeat(4,1fr)}}
+/* ================= GRID & CARDS ================= */
+.platform-content { display: none; }
+.platform-content.active { display: block; animation: fadeIn 0.4s ease; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-/* CARD */
-.card{
-background:rgba(255,255,255,.05);
-border:1px solid rgba(255,255,255,.1);
-border-radius:14px;padding:18px;text-align:center}
-.card i{
-font-size:38px;margin-bottom:10px;
-animation:float 3s ease-in-out infinite}
-@keyframes float{
-0%{transform:translateY(0)}
-50%{transform:translateY(-10px)}
-100%{transform:translateY(0)}}
+.section-title { text-align: center; margin: 30px 0 15px; color: #4dd2ff; font-size: 20px; text-transform: uppercase; }
+.container {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 12px; padding: 15px; max-width: 1200px; margin: auto;
+}
+.card {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px; padding: 18px; text-align: center;
+}
+.card i {
+    font-size: 38px; margin-bottom: 10px; display: inline-block;
+    animation: float 3s ease-in-out infinite;
+}
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
-.ig{color:#ff5ccd}.tk{color:#fff}.heart{color:#ff4d4d}
-.price{color:#00ffee;font-weight:700;margin:8px 0}
-.btn{
-display:block;margin-top:10px;padding:10px;
-border-radius:8px;
-background:linear-gradient(135deg,#25d366,#128c7e);
-color:#fff;text-decoration:none;font-weight:700;font-size:13px}
+.ig { color: #ff5ccd; } .tk { color: #fff; } .heart { color: #ff4d4d; } .eye { color: #00ffee; }
+.price { color: #00ffee; font-weight: 700; margin: 8px 0; font-size: 17px; }
+.btn {
+    display: block; padding: 10px; border-radius: 8px;
+    background: linear-gradient(135deg, #25d366, #128c7e);
+    color: #fff; text-decoration: none; font-weight: 700; font-size: 13px;
+}
 
-footer{text-align:center;padding:30px;color:#777;font-size:12px}
+footer { text-align: center; padding: 30px; color: #777; font-size: 12px; }
+@media(min-width: 768px) { .container { grid-template-columns: repeat(4, 1fr); } }
 </style>
 </head>
-
 <body>
 
 <header>💎 TAKİBCİAL</header>
 
 <nav>
-<button class="tab-btn active" onclick="showPlatform('instagram',this)">Instagram</button>
-<button class="tab-btn" onclick="showPlatform('tiktok',this)">TikTok</button>
+    <button class="tab-btn active" onclick="showPlatform('instagram',this)">Instagram</button>
+    <button class="tab-btn" onclick="showPlatform('tiktok',this)">TikTok</button>
 </nav>
 
-<!-- WHEEL -->
 <div id="wheel-container">
-<div id="wheel-box">
-<div class="wheel-pointer"></div>
-<div id="wheel">
-<div class="wheel-text">
-<span>3%</span><span>5%</span><span>10%</span>
-<span>7%</span><span>50%</span><span>3%</span>
-</div>
-</div>
-</div>
-<button id="spin-btn" onclick="spin()">Endirim Qazan</button>
-<p id="wheel-msg">Hər kəs 1 dəfə fırlada bilər</p>
+    <div id="wheel-box">
+        <div class="wheel-pointer"></div>
+        <div id="wheel">
+            <div class="wheel-text">
+                <span>3%</span><span>5%</span><span>10%</span><span>7%</span><span>50%</span><span>3%</span>
+            </div>
+        </div>
+    </div>
+    <button id="spin-btn" onclick="spin()">Endirim Qazan</button>
+    <p id="wheel-msg">Hər kəs 1 dəfə fırlada bilər</p>
 </div>
 
-<!-- INSTAGRAM -->
 <div id="instagram" class="platform-content active">
+    
+    <div class="section-title">Instagram Takibçi</div>
+    <div class="container">
+        <div class="card"><i class="fa-brands fa-instagram ig"></i><h3>1000 Takibçi</h3><div class="price">6 AZN</div><a class="btn" href="https://wa.me/994709006777?text=Instagram-1000-Takibci">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-brands fa-instagram ig"></i><h3>2000 Takibçi</h3><div class="price">12 AZN</div><a class="btn" href="https://wa.me/994709006777?text=Instagram-2000-Takibci">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-brands fa-instagram ig"></i><h3>5000 Takibçi</h3><div class="price">28 AZN</div><a class="btn" href="https://wa.me/994709006777?text=Instagram-5000-Takibci">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-brands fa-instagram ig"></i><h3>10.000 Takibçi</h3><div class="price">55 AZN</div><a class="btn" href="https://wa.me/994709006777?text=Instagram-10000-Takibci">SİFARİŞ ET</a></div>
+    </div>
 
-<div class="section-title">Instagram Takibçi</div>
-<div class="container">
-<div class="card"><i class="fa-brands fa-instagram ig"></i><h3>1000 Takibçi</h3><div class="price">6 AZN</div>
-<a class="btn" href="https://wa.me/994709006777?text=Instagram-1000-Takibci">SİFARİŞ ET</a></div>
+    <div class="section-title">Instagram Bəyəni</div>
+    <div class="container">
+        <div class="card"><i class="fa-solid fa-heart heart"></i><h3>500 Like</h3><div class="price">0.50 AZN</div><a class="btn" href="https://wa.me/994709006777?text=IG-500-Like">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-heart heart"></i><h3>1000 Like</h3><div class="price">2 AZN</div><a class="btn" href="https://wa.me/994709006777?text=IG-1000-Like">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-heart heart"></i><h3>2000 Like</h3><div class="price">3.5 AZN</div><a class="btn" href="https://wa.me/994709006777?text=IG-2000-Like">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-heart heart"></i><h3>5000 Like</h3><div class="price">8 AZN</div><a class="btn" href="https://wa.me/994709006777?text=IG-5000-Like">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-heart heart"></i><h3>10.000 Like</h3><div class="price">14 AZN</div><a class="btn" href="https://wa.me/994709006777?text=IG-10000-Like">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-heart heart"></i><h3>50.000 Like</h3><div class="price">45 AZN</div><a class="btn" href="https://wa.me/994709006777?text=IG-50000-Like">SİFARİŞ ET</a></div>
+    </div>
 
-<div class="card"><i class="fa-brands fa-instagram ig"></i><h3>5000 Takibçi</h3><div class="price">28 AZN</div>
-<a class="btn" href="https://wa.me/994709006777?text=Instagram-5000-Takibci">SİFARİŞ ET</a></div>
+    <div class="section-title">Instagram Baxış</div>
+    <div class="container">
+        <div class="card"><i class="fa-solid fa-eye eye"></i><h3>10.000 Baxış</h3><div class="price">5.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=IG-10000-Baxish">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-eye eye"></i><h3>100.000 Baxış</h3><div class="price">12.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=IG-100000-Baxish">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-eye eye"></i><h3>1.000.000 Baxış</h3><div class="price">22.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=IG-1M-Baxish">SİFARİŞ ET</a></div>
+    </div>
 </div>
 
-<div class="section-title">Instagram Bəyəni</div>
-<div class="container">
-<div class="card"><i class="fa-solid fa-heart heart"></i><h3>500 Like</h3><div class="price">0.50 AZN</div><a class="btn" href="https://wa.me/994709006777?text=IG-500-Like">SİFARİŞ ET</a></div>
-<div class="card"><i class="fa-solid fa-heart heart"></i><h3>1000 Like</h3><div class="price">2 AZN</div><a class="btn" href="https://wa.me/994709006777?text=IG-1000-Like">SİFARİŞ ET</a></div>
-<div class="card"><i class="fa-solid fa-heart heart"></i><h3>5000 Like</h3><div class="price">8 AZN</div><a class="btn" href="https://wa.me/994709006777?text=IG-5000-Like">SİFARİŞ ET</a></div>
-<div class="card"><i class="fa-solid fa-heart heart"></i><h3>10.000 Like</h3><div class="price">14 AZN</div><a class="btn" href="https://wa.me/994709006777?text=IG-10000-Like">SİFARİŞ ET</a></div>
-</div>
-</div>
-
-<!-- TIKTOK -->
 <div id="tiktok" class="platform-content">
-<div class="section-title">TikTok Takibçi</div>
-<div class="container">
-<div class="card"><i class="fa-brands fa-tiktok tk"></i><h3>1000 Takibçi</h3><div class="price">9 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-1000-Takibci">SİFARİŞ ET</a></div>
-<div class="card"><i class="fa-brands fa-tiktok tk"></i><h3>10.000 Takibçi</h3><div class="price">65 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-10000-Takibci">SİFARİŞ ET</a></div>
-</div>
+    <div class="section-title">TikTok Takibçi</div>
+    <div class="container">
+        <div class="card"><i class="fa-brands fa-tiktok tk"></i><h3>1000 Takibçi</h3><div class="price">9 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-1000-Takibci">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-brands fa-tiktok tk"></i><h3>5000 Takibçi</h3><div class="price">42 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-5000-Takibci">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-brands fa-tiktok tk"></i><h3>10.000 Takibçi</h3><div class="price">65 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-10000-Takibci">SİFARİŞ ET</a></div>
+    </div>
 
-<div class="section-title">TikTok Bəyəni</div>
-<div class="container">
-<div class="card"><i class="fa-solid fa-heart heart"></i><h3>500 Like</h3><div class="price">0.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-500-Like">SİFARİŞ ET</a></div>
-<div class="card"><i class="fa-solid fa-heart heart"></i><h3>1000 Like</h3><div class="price">1.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-1000-Like">SİFARİŞ ET</a></div>
-<div class="card"><i class="fa-solid fa-heart heart"></i><h3>5000 Like</h3><div class="price">8.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-5000-Like">SİFARİŞ ET</a></div>
-<div class="card"><i class="fa-solid fa-heart heart"></i><h3>10.000 Like</h3><div class="price">14.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-10000-Like">SİFARİŞ ET</a></div>
-</div>
+    <div class="section-title">TikTok Bəyəni</div>
+    <div class="container">
+        <div class="card"><i class="fa-solid fa-heart heart"></i><h3>500 Like</h3><div class="price">0.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-500-Like">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-heart heart"></i><h3>1000 Like</h3><div class="price">1.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-1000-Like">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-heart heart"></i><h3>5000 Like</h3><div class="price">8.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-5000-Like">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-heart heart"></i><h3>10.000 Like</h3><div class="price">14.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-10000-Like">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-heart heart"></i><h3>50.000 Like</h3><div class="price">50.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-50000-Like">SİFARİŞ ET</a></div>
+    </div>
+
+    <div class="section-title">TikTok Baxış</div>
+    <div class="container">
+        <div class="card"><i class="fa-solid fa-play tk"></i><h3>10.000 Baxış</h3><div class="price">5.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-10000-Baxish">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-play tk"></i><h3>100.000 Baxış</h3><div class="price">12.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-100000-Baxish">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-play tk"></i><h3>1.000.000 Baxış</h3><div class="price">22.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-1M-Baxish">SİFARİŞ ET</a></div>
+    </div>
 </div>
 
 <footer>© 2026 Takibcial.com</footer>
 
 <script>
 function showPlatform(id,el){
-document.querySelectorAll('.platform-content').forEach(c=>c.classList.remove('active'));
-document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-document.getElementById(id).classList.add('active');
-el.classList.add('active');
+    document.querySelectorAll('.platform-content').forEach(c=>c.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    el.classList.add('active');
 }
+
 const wheel=document.getElementById('wheel');
 const msg=document.getElementById('wheel-msg');
+const btnSpin=document.getElementById('spin-btn');
+
 const prizes=[
-{t:"3%",d:1830},{t:"5%",d:1890},{t:"10%",d:1950},
-{t:"7%",d:2010},{t:"50%",d:2070},{t:"3%",d:2130}
+    {t:"3%",d:1830},{t:"5%",d:1890},{t:"10%",d:1950},
+    {t:"7%",d:2010},{t:"50%",d:2070},{t:"3%",d:2130}
 ];
+
+window.onload = function() {
+    if(localStorage.getItem('wheelUsed')){
+        msg.innerText = "Sizin endiriminiz aktivdir!";
+        btnSpin.style.display = 'none';
+    }
+}
+
 function spin(){
-if(localStorage.getItem('wheelUsed'))return;
-const p=prizes[Math.floor(Math.random()*prizes.length)];
-wheel.style.transform=`rotate(${p.d}deg)`;
-setTimeout(()=>{
-msg.innerText="Qazandınız: "+p.t+" endirim";
-localStorage.setItem('wheelUsed',1);
-},4000);
+    if(localStorage.getItem('wheelUsed')) return;
+    const p=prizes[Math.floor(Math.random()*prizes.length)];
+    wheel.style.transform=`rotate(${p.d}deg)`;
+    btnSpin.disabled = true;
+    btnSpin.innerText = "Fırlanır...";
+    
+    setTimeout(()=>{
+        msg.innerText="Təbriklər! Qazandınız: "+p.t+" endirim";
+        localStorage.setItem('wheelUsed',1);
+        btnSpin.style.display = 'none';
+        alert("Sizin " + p.t + " endiriminiz qeydə alındı!");
+    },4000);
 }
 </script>
 
