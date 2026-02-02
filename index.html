@@ -26,6 +26,7 @@ header{
     color:#4dd2ff;
     text-transform: uppercase;
     letter-spacing:2px;
+    text-shadow: 0 0 10px rgba(77, 210, 255, 0.5);
 }
 nav{
     display:flex;
@@ -98,21 +99,34 @@ nav{
     position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
     border-left: 12px solid transparent; border-right: 12px solid transparent; border-top: 20px solid #fff; z-index: 10;
 }
-#spin-btn { margin-top: 15px; padding: 10px 25px; background: #00ffee; border: none; border-radius: 20px; font-weight: 700; cursor: pointer; color: #020b1c; }
+#spin-btn { margin-top: 15px; padding: 10px 25px; background: #00ffee; border: none; border-radius: 20px; font-weight: 700; cursor: pointer; color: #020b1c; transition: 0.3s; }
+#spin-btn:hover { background: #fff; box-shadow: 0 0 20px #00ffee; transform: scale(1.05); }
 
 /* ================= GRID & CARDS ================= */
 .platform-content { display: none; }
 .platform-content.active { display: block; animation: fadeIn 0.4s ease; }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-.section-title { text-align: center; margin: 30px 0 15px; color: #4dd2ff; font-size: 20px; text-transform: uppercase; }
+.section-title { text-align: center; margin: 30px 0 15px; color: #4dd2ff; font-size: 20px; text-transform: uppercase; letter-spacing: 1px; }
 .container {
     display: grid; grid-template-columns: repeat(2, 1fr);
     gap: 12px; padding: 15px; max-width: 1200px; margin: auto;
 }
 .card {
-    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 14px; padding: 18px; text-align: center;
+    background: rgba(255,255,255,0.05); 
+    border: 1px solid rgba(77, 210, 255, 0.1);
+    border-radius: 14px; 
+    padding: 18px; 
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+.card:hover {
+    transform: translateY(-8px);
+    background: rgba(255,255,255,0.08);
+    border-color: #4dd2ff;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3), 0 0 15px rgba(77, 210, 255, 0.2);
 }
 .card i {
     font-size: 38px; margin-bottom: 10px; display: inline-block;
@@ -120,12 +134,23 @@ nav{
 }
 @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
-.ig { color: #ff5ccd; } .tk { color: #fff; } .heart { color: #ff4d4d; } .eye { color: #00ffee; }
-.price { color: #00ffee; font-weight: 700; margin: 8px 0; font-size: 17px; }
+.ig { color: #ff5ccd; text-shadow: 0 0 10px rgba(255, 92, 205, 0.3); } 
+.tk { color: #fff; text-shadow: 0 0 10px rgba(255, 255, 255, 0.3); } 
+.heart { color: #ff4d4d; text-shadow: 0 0 10px rgba(255, 77, 77, 0.3); } 
+.eye { color: #00ffee; text-shadow: 0 0 10px rgba(0, 255, 238, 0.3); }
+
+.price { color: #00ffee; font-weight: 700; margin: 8px 0; font-size: 17px; text-shadow: 0 0 5px rgba(0, 255, 238, 0.5); }
 .btn {
     display: block; padding: 10px; border-radius: 8px;
     background: linear-gradient(135deg, #25d366, #128c7e);
     color: #fff; text-decoration: none; font-weight: 700; font-size: 13px;
+    transition: 0.3s;
+    border: none;
+}
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(37, 211, 102, 0.4);
+    filter: brightness(1.1);
 }
 
 footer { text-align: center; padding: 30px; color: #777; font-size: 12px; }
@@ -216,10 +241,18 @@ footer { text-align: center; padding: 30px; color: #777; font-size: 12px; }
         <div class="card"><i class="fa-solid fa-play tk"></i><h3>3.000 Baxış</h3><div class="price">2.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-3000-Baxish">SİFARİŞ ET</a></div>
         <div class="card"><i class="fa-solid fa-play tk"></i><h3>5.000 Baxış</h3><div class="price">3.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-5000-Baxish">SİFARİŞ ET</a></div>
         <div class="card"><i class="fa-solid fa-play tk"></i><h3>10.000 Baxış</h3><div class="price">5.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-10000-Baxish">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-solid fa-play tk"></i><h3>20.000 Baxış</h3><div class="price">7.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-20000-Baxish">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-solid fa-play tk"></i><h3>50.000 Baxış</h3><div class="price">9.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-50000-Baxish">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-solid fa-play tk"></i><h3>100.000 Baxış</h3><div class="price">15.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-100000-Baxish">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-solid fa-play tk"></i><h3>500.000 Baxış</h3><div class="price">34.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-500000-Baxish">SİFARİŞ ET</a></div>
+        <div class="card">
+            <i class="fa-solid fa-play tk"></i><h3>20.000 Baxış</h3><div class="price">7.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-20000-Baxish">SİFARİŞ ET</a>
+        </div>
+        <div class="card">
+            <i class="fa-solid fa-play tk"></i><h3>50.000 Baxış</h3><div class="price">9.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-50000-Baxish">SİFARİŞ ET</a>
+        </div>
+        <div class="card">
+            <i class="fa-solid fa-play tk"></i><h3>100.000 Baxış</h3><div class="price">15.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-100000-Baxish">SİFARİŞ ET</a>
+        </div>
+        <div class="card">
+            <i class="fa-solid fa-play tk"></i><h3>500.000 Baxış</h3><div class="price">34.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-500000-Baxish">SİFARİŞ ET</a>
+        </div>
     </div>
 </div>
 
