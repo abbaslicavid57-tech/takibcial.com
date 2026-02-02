@@ -1,171 +1,303 @@
 <!DOCTYPE html>
 <html lang="az">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Takibcial - Premium SMM</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <style>
-        /* BASE & RESET */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background: #020b1c; color: #fff; overflow-x: hidden; }
+<meta charset="UTF-8">
+<title>Takibcial • Premium SMM Panel</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-        /* 1. XƏBƏR LENTİ (MARQUEE) */
-        .top-news-bar {
-            background: #4dd2ff;
-            color: #020b1c;
-            height: 35px;
-            display: flex;
-            align-items: center;
-            font-weight: 800;
-            font-size: 14px;
-            text-transform: uppercase;
-            position: fixed;
-            top: 0; width: 100%; z-index: 9999;
-        }
-        .marquee {
-            white-space: nowrap;
-            animation: marquee-effect 15s linear infinite;
-            padding-left: 100%;
-        }
-        @keyframes marquee-effect {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-200%); }
-        }
+<style>
+/* ================= RESET & BASE ================= */
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(135deg,#06162f,#020b1c);
+    color:#fff;
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
 
-        header { padding: 60px 20px 20px; text-align: center; font-size: 30px; font-weight: 900; color: #4dd2ff; }
+/* ================= LIVE MARQUEE (Xəbər Lenti) ================= */
+.news-ticker {
+    background: #4dd2ff;
+    color: #020b1c;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 5px 0;
+    font-weight: 800;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+.ticker-content {
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 15s linear infinite;
+}
+@keyframes marquee {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-100%, 0); }
+}
 
-        /* NAV TABS */
-        nav { display: flex; justify-content: center; gap: 10px; padding: 10px; sticky: top; }
-        .tab-btn {
-            padding: 10px 20px; border: 2px solid #4dd2ff; background: transparent;
-            color: #4dd2ff; border-radius: 30px; cursor: pointer; font-weight: bold;
-        }
-        .tab-btn.active { background: #4dd2ff; color: #020b1c; }
+/* ================= HEADER & NAV ================= */
+header{
+    padding:20px;
+    text-align:center;
+    font-size:28px;
+    font-weight:800;
+    color:#4dd2ff;
+    text-transform: uppercase;
+    letter-spacing:2px;
+    text-shadow: 0 0 10px rgba(77, 210, 255, 0.5);
+}
+nav{
+    display:flex;
+    justify-content:center;
+    flex-wrap: wrap;
+    gap:8px;
+    padding:12px;
+    position: sticky;
+    top: 0;
+    background: rgba(6, 22, 47, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(77, 210, 255, 0.2);
+}
+.tab-btn {
+    padding: 8px 16px;
+    border: 1px solid #4dd2ff;
+    background: transparent;
+    color: #4dd2ff;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+    font-size: 13px;
+}
+.tab-btn.active {
+    background: #4dd2ff;
+    color: #020b1c;
+    box-shadow: 0 0 15px rgba(77, 210, 255, 0.5);
+}
 
-        /* CONTAINERS */
-        .content-section { display: none; padding: 20px; }
-        .content-section.active { display: block; }
-        .grid-container {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 15px; max-width: 1200px; margin: auto;
-        }
-        .card {
-            background: rgba(255,255,255,0.05); border: 1px solid rgba(77,210,255,0.2);
-            padding: 20px; border-radius: 15px; text-align: center; transition: 0.3s;
-        }
-        .card:hover { transform: translateY(-5px); border-color: #4dd2ff; }
-        .card i { font-size: 40px; margin-bottom: 10px; }
-        .price { color: #00ffee; font-size: 20px; font-weight: bold; margin: 10px 0; }
-        .buy-btn {
-            display: block; background: #25d366; color: white; padding: 10px;
-            text-decoration: none; border-radius: 8px; font-weight: bold;
-        }
+/* ================= NEON WHEEL ================= */
+#wheel-container {
+    text-align: center;
+    margin: 20px auto;
+    width: 280px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 20px;
+    border: 1px solid rgba(77, 210, 255, 0.2);
+}
+#wheel-box {
+    position: relative;
+    width: 210px;
+    height: 210px;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 3px solid #4dd2ff;
+    box-shadow: 0 0 15px #4dd2ff;
+}
+#wheel {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    transition: transform 4s cubic-bezier(.15,0,.15,1);
+    background: conic-gradient(#ff5ccd 0 60deg, #00c6ff 60 120deg, #25d366 120 180deg, #ff4d4d 180 240deg, #f1c40f 240 300deg, #9b59b6 300 360deg);
+}
+.wheel-text span {
+    position: absolute; width: 50%; top: 50%; left: 50%;
+    transform-origin: 0% 50%; text-align: right; padding-right: 15px;
+    font-weight: 800; font-size: 14px;
+}
+.wheel-text span:nth-child(1) { transform: translateY(-50%) rotate(30deg); }
+.wheel-text span:nth-child(2) { transform: translateY(-50%) rotate(90deg); }
+.wheel-text span:nth-child(3) { transform: translateY(-50%) rotate(150deg); }
+.wheel-text span:nth-child(4) { transform: translateY(-50%) rotate(210deg); }
+.wheel-text span:nth-child(5) { transform: translateY(-50%) rotate(270deg); }
+.wheel-text span:nth-child(6) { transform: translateY(-50%) rotate(330deg); }
 
-        /* 2. CANLI SİFARİŞ BİLDİRİŞİ */
-        #live-alert {
-            position: fixed; bottom: 20px; left: -400px;
-            background: rgba(255, 255, 255, 0.95); color: #333;
-            padding: 15px 25px; border-radius: 10px; border-left: 5px solid #25d366;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3); z-index: 10000;
-            transition: 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            display: flex; align-items: center; gap: 10px;
-        }
-        #live-alert.show { left: 20px; }
-        #live-alert b { color: #128c7e; }
+.wheel-pointer {
+    position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+    border-left: 12px solid transparent; border-right: 12px solid transparent; border-top: 20px solid #fff; z-index: 10;
+}
+#spin-btn { margin-top: 15px; padding: 10px 25px; background: #00ffee; border: none; border-radius: 20px; font-weight: 700; cursor: pointer; color: #020b1c; transition: 0.3s; }
+#spin-btn:hover { background: #fff; box-shadow: 0 0 20px #00ffee; transform: scale(1.05); }
 
-        /* WHEEL */
-        .wheel-area { text-align: center; margin: 20px 0; }
-        #wheel { width: 180px; height: 180px; border-radius: 50%; border: 5px solid #4dd2ff; margin: auto; transition: 4s; background: conic-gradient(red, blue, green, yellow, purple, orange); }
+/* ================= GRID & CARDS ================= */
+.platform-content { display: none; }
+.platform-content.active { display: block; animation: fadeIn 0.4s ease; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        footer { text-align: center; padding: 40px; color: #555; }
-    </style>
+.section-title { text-align: center; margin: 30px 0 15px; color: #4dd2ff; font-size: 20px; text-transform: uppercase; letter-spacing: 1px; }
+.container {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 12px; padding: 15px; max-width: 1200px; margin: auto;
+}
+.card {
+    background: rgba(255,255,255,0.05); 
+    border: 1px solid rgba(77, 210, 255, 0.1);
+    border-radius: 14px; 
+    padding: 18px; 
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+}
+.card:hover {
+    transform: translateY(-8px);
+    background: rgba(255,255,255,0.08);
+    border-color: #4dd2ff;
+}
+.card i { font-size: 38px; margin-bottom: 10px; display: inline-block; }
+.ig { color: #ff5ccd; } .tk { color: #fff; } .heart { color: #ff4d4d; } .eye { color: #00ffee; }
+
+.price { color: #00ffee; font-weight: 700; margin: 8px 0; font-size: 17px; }
+.btn {
+    display: block; padding: 10px; border-radius: 8px;
+    background: linear-gradient(135deg, #25d366, #128c7e);
+    color: #fff; text-decoration: none; font-weight: 700; font-size: 13px;
+    transition: 0.3s; border: none;
+}
+
+/* ================= LIVE NOTIFICATION (Sifariş Bildirişi) ================= */
+.live-notify {
+    position: fixed;
+    bottom: 20px;
+    left: -350px; /* Hidden initially */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-left: 4px solid #25d366;
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: left 0.5s ease-in-out;
+}
+.live-notify.show { left: 20px; }
+.live-notify i { color: #25d366; font-size: 20px; }
+.live-notify-text { font-size: 13px; color: #fff; }
+.live-notify-text b { color: #00ffee; }
+
+footer { text-align: center; padding: 30px; color: #777; font-size: 12px; }
+@media(min-width: 768px) { .container { grid-template-columns: repeat(4, 1fr); } }
+</style>
 </head>
 <body>
 
-    <div class="top-news-bar">
-        <div class="marquee">
-            🔥🔥 100% TƏHLÜKƏSİZ XİDMƏT — İNDİ SİFARİŞ VER VƏ ENDİRİM QAZAN — BÜTÜN SOSİAL MEDİA XİDMƏTLƏRİ BİR ÜNVANDA — 7/24 AKTİV DƏSTƏK — 
+<div class="news-ticker">
+    <div class="ticker-content">
+        💎 100% TƏHLÜKƏSİZ XİDMƏT — İNDİ SİFARİŞ VER VƏ HƏDİYYƏLƏR QAZAN! — KEYFİYYƏTLİ TAKİBÇİ VƏ BƏYƏNİ PANELİ — 7/24 DƏSTƏK — 
+    </div>
+</div>
+
+<header>💎 TAKİBCİAL</header>
+
+<nav>
+    <button class="tab-btn active" onclick="showPlatform('instagram',this)">Instagram</button>
+    <button class="tab-btn" onclick="showPlatform('tiktok',this)">TikTok</button>
+</nav>
+
+<div id="wheel-container">
+    <div id="wheel-box">
+        <div class="wheel-pointer"></div>
+        <div id="wheel">
+            <div class="wheel-text">
+                <span>3%</span><span>5%</span><span>10%</span><span>7%</span><span>20%</span><span>3%</span>
+            </div>
         </div>
     </div>
+    <button id="spin-btn" onclick="spin()">Endirim Qazan</button>
+    <p id="wheel-msg">Hər kəs 3 dəfə fırlada bilər</p>
+</div>
 
-    <header>💎 TAKİBCİAL</header>
-
-    <nav>
-        <button class="tab-btn active" onclick="switchTab('insta', this)">Instagram</button>
-        <button class="tab-btn" onclick="switchTab('tiktok', this)">TikTok</button>
-    </nav>
-
-    <div class="wheel-area">
-        <div id="wheel"></div>
-        <button onclick="spinWheel()" id="s-btn" style="margin-top:15px; padding:10px 20px; background:#00ffee; border:none; border-radius:20px; font-weight:bold; cursor:pointer;">Hədiyyə Qazan</button>
+<div id="instagram" class="platform-content active">
+    <div class="section-title">Instagram Takibçi</div>
+    <div class="container">
+        <div class="card"><i class="fa-brands fa-instagram ig"></i><h3>1000 Takibçi</h3><div class="price">6 AZN</div><a class="btn" href="https://wa.me/994709006777?text=Instagram-1000-Takibci">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-brands fa-instagram ig"></i><h3>5000 Takibçi</h3><div class="price">28 AZN</div><a class="btn" href="https://wa.me/994709006777?text=Instagram-5000-Takibci">SİFARİŞ ET</a></div>
+    </div>
     </div>
 
-    <div id="insta" class="content-section active">
-        <h2 style="text-align:center; color:#4dd2ff; margin-bottom:20px;">INSTAGRAM</h2>
-        <div class="grid-container">
-            <div class="card"><i class="fab fa-instagram" style="color:#ff5ccd"></i><h3>1000 Takibçi</h3><div class="price">6 AZN</div><a href="https://wa.me/994709006777" class="buy-btn">SİFARİŞ ET</a></div>
-            <div class="card"><i class="fas fa-heart" style="color:#ff4d4d"></i><h3>1000 Bəyəni</h3><div class="price">2 AZN</div><a href="https://wa.me/994709006777" class="buy-btn">SİFARİŞ ET</a></div>
-        </div>
+<div id="tiktok" class="platform-content">
+    <div class="section-title">TikTok Takibçi</div>
+    <div class="container">
+        <div class="card"><i class="fa-brands fa-tiktok tk"></i><h3>1000 Takibçi</h3><div class="price">9 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-1000-Takibci">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-brands fa-tiktok tk"></i><h3>5000 Takibçi</h3><div class="price">42 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-5000-Takibci">SİFARİŞ ET</a></div>
     </div>
 
-    <div id="tiktok" class="content-section">
-        <h2 style="text-align:center; color:#4dd2ff; margin-bottom:20px;">TIKTOK BAXIŞ SİYAHISI</h2>
-        <div class="grid-container">
-            <div class="card"><i class="fas fa-play" style="color:#00ffee"></i><h3>1.000 Baxış</h3><div class="price">0.99 AZN</div><a href="https://wa.me/994709006777" class="buy-btn">SİFARİŞ ET</a></div>
-            <div class="card"><i class="fas fa-play" style="color:#00ffee"></i><h3>3.000 Baxış</h3><div class="price">2.99 AZN</div><a href="https://wa.me/994709006777" class="buy-btn">SİFARİŞ ET</a></div>
-            <div class="card"><i class="fas fa-play" style="color:#00ffee"></i><h3>5.000 Baxış</h3><div class="price">3.99 AZN</div><a href="https://wa.me/994709006777" class="buy-btn">SİFARİŞ ET</a></div>
-            <div class="card"><i class="fas fa-play" style="color:#00ffee"></i><h3>10.000 Baxış</h3><div class="price">5.99 AZN</div><a href="https://wa.me/994709006777" class="buy-btn">SİFARİŞ ET</a></div>
-            <div class="card"><i class="fas fa-play" style="color:#00ffee"></i><h3>20.000 Baxış</h3><div class="price">7.99 AZN</div><a href="https://wa.me/994709006777" class="buy-btn">SİFARİŞ ET</a></div>
-            <div class="card"><i class="fas fa-play" style="color:#00ffee"></i><h3>50.000 Baxış</h3><div class="price">9.99 AZN</div><a href="https://wa.me/994709006777" class="buy-btn">SİFARİŞ ET</a></div>
-            <div class="card"><i class="fas fa-play" style="color:#00ffee"></i><h3>100.000 Baxış</h3><div class="price">15.99 AZN</div><a href="https://wa.me/994709006777" class="buy-btn">SİFARİŞ ET</a></div>
-            <div class="card"><i class="fas fa-play" style="color:#00ffee"></i><h3>500.000 Baxış</h3><div class="price">34.99 AZN</div><a href="https://wa.me/994709006777" class="buy-btn">SİFARİŞ ET</a></div>
-            <div class="card"><i class="fas fa-play" style="color:#00ffee"></i><h3>1.000.000 Baxış</h3><div class="price">59.99 AZN</div><a href="https://wa.me/994709006777" class="buy-btn">SİFARİŞ ET</a></div>
-        </div>
+    <div class="section-title">TikTok Baxış</div>
+    <div class="container">
+        <div class="card"><i class="fa-solid fa-play eye"></i><h3>1.000 Baxış</h3><div class="price">0.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-1000-Baxish">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-play eye"></i><h3>10.000 Baxış</h3><div class="price">5.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-10000-Baxish">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-play eye"></i><h3>50.000 Baxış</h3><div class="price">9.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-50000-Baxish">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-play eye"></i><h3>100.000 Baxış</h3><div class="price">15.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-100000-Baxish">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-play eye"></i><h3>500.000 Baxış</h3><div class="price">34.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-500000-Baxish">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-play eye"></i><h3>1.000.000 Baxış</h3><div class="price">59.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-1M-Baxish">SİFARİŞ ET</a></div>
     </div>
+</div>
 
-    <div id="live-alert">
-        <i class="fas fa-shopping-basket"></i>
-        <span id="alert-text"></span>
+<div id="live-notification" class="live-notify">
+    <i class="fa-solid fa-circle-check"></i>
+    <div class="live-notify-text" id="notify-msg">
+        <b>Ayxan</b> 500 takibçi sifarişi etdi.
     </div>
+</div>
 
-    <footer>© 2026 Takibcial - Bütün hüquqlar qorunur.</footer>
+<footer>© 2026 Takibcial.com</footer>
 
-    <script>
-        // TABS
-        function switchTab(id, btn) {
-            document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
-            btn.classList.add('active');
-        }
+<script>
+function showPlatform(id,el){
+    document.querySelectorAll('.platform-content').forEach(c=>c.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    el.classList.add('active');
+}
 
-        // WHEEL
-        function spinWheel() {
-            const w = document.getElementById('wheel');
-            const rand = Math.floor(Math.random() * 2000) + 1000;
-            w.style.transform = `rotate(${rand}deg)`;
-            document.getElementById('s-btn').innerText = "Qazandınız!";
-        }
+// ================= WHEEL LOGIC =================
+const wheel=document.getElementById('wheel');
+const msg=document.getElementById('wheel-msg');
+const btnSpin=document.getElementById('spin-btn');
+const prizes=[{t:"3%",d:1830},{t:"5%",d:1890},{t:"10%",d:1950},{t:"7%",d:2010},{t:"20%",d:2070},{t:"3%",d:2130}];
 
-        // CANLI BİLDİRİŞ SİSTEMİ
-        const names = ["Ayxan", "Hüseyn", "Nigar", "Elvin", "Leyla", "Murad", "Aysel", "Kənan", "Fidan", "Rəşad", "Zaur", "Günel", "Orxan", "Vüsal"];
-        const orders = ["500 Takibçi", "1000 Bəyəni", "10.000 Baxış", "3000 Takibçi", "20.000 Baxış", "5000 Like"];
+function spin(){
+    if(localStorage.getItem('wheelUsed')) return;
+    const p=prizes[Math.floor(Math.random()*prizes.length)];
+    wheel.style.transform=`rotate(${p.d}deg)`;
+    btnSpin.disabled = true;
+    setTimeout(()=>{
+        msg.innerText="Təbriklər! "+p.t+" endirim qazandınız!";
+        localStorage.setItem('wheelUsed',1);
+        btnSpin.style.display = 'none';
+    },4000);
+}
 
-        function triggerAlert() {
-            const alertBox = document.getElementById('live-alert');
-            const text = document.getElementById('alert-text');
-            const name = names[Math.floor(Math.random() * names.length)];
-            const order = orders[Math.floor(Math.random() * orders.orders.length) || 0]; // Düzəliş
-            
-            text.innerHTML = `<b>${name}</b> yeni sifariş etdi: <b>${orders[Math.floor(Math.random()*orders.length)]}</b>`;
-            alertBox.classList.add('show');
+// ================= LIVE NOTIFICATIONS LOGIC =================
+const names = ["Ayxan", "Hüseyn", "Nigar", "Elvin", "Leyla", "Murad", "Aysel", "Kənan", "Fidan", "Rəşad"];
+const services = ["1000 Takibçi", "5000 Baxış", "10000 Bəyəni", "20000 Baxış", "500 Takibçi", "Video Baxış"];
 
-            setTimeout(() => { alertBox.classList.remove('show'); }, 4000);
-        }
+function showLiveNotify() {
+    const notify = document.getElementById('live-notification');
+    const msg = document.getElementById('notify-msg');
+    
+    const randomName = names[Math.floor(Math.random() * names.length)];
+    const randomService = services[Math.floor(Math.random() * services.length)];
+    
+    msg.innerHTML = `<b>${randomName}</b> yenicə <b>${randomService}</b> sifarişi etdi.`;
+    
+    notify.classList.add('show');
+    
+    setTimeout(() => {
+        notify.classList.remove('show');
+    }, 4000);
+}
 
-        setInterval(triggerAlert, 9000);
-        setTimeout(triggerAlert, 3000);
-    </script>
+// Hər 7-10 saniyədən bir bildiriş çıxsın
+setInterval(showLiveNotify, 8000);
+window.onload = showLiveNotify;
+</script>
+
 </body>
 </html>
