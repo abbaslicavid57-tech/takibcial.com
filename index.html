@@ -1,100 +1,245 @@
 <!DOCTYPE html>
 <html lang="az">
 <head>
-  <meta charset="UTF-8">
-  <title>Takibcial.com | SMM Panel</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Takibcial.com | Premium SMM Panel</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+<!-- ICONS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!-- Icons -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<style>
+/* ===== RESET ===== */
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+
+/* ===== BODY ===== */
+body{
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+color:#fff;
+min-height:100vh;
+}
+
+/* ===== HEADER ===== */
+header{
+padding:15px;
+text-align:center;
+background:rgba(0,0,0,0.5);
+}
+.logo{
+font-size:26px;
+font-weight:bold;
+cursor:pointer;
+transition:0.5s;
+}
+.logo:hover{
+transform:rotate(360deg) scale(1.2);
+color:#00d4ff;
+}
+
+/* ===== PLATFORM BUTTONS ===== */
+.platforms{
+display:flex;
+justify-content:center;
+gap:12px;
+margin:20px;
+flex-wrap:wrap;
+}
+.platforms button{
+padding:10px 18px;
+border:none;
+border-radius:25px;
+background:#00c6ff;
+color:#000;
+font-size:16px;
+cursor:pointer;
+transition:.3s;
+}
+.platforms button:hover{
+transform:scale(1.1);
+}
+
+/* ===== SERVICES ===== */
+.services{display:none;padding:20px}
+.services.active{display:block}
+
+/* ===== TITLE ===== */
+h2{text-align:center;margin-bottom:20px}
+
+/* ===== PACKAGES GRID ===== */
+.packages{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+}
+
+/* ===== CARD ===== */
+.card{
+background:rgba(255,255,255,0.08);
+border-radius:18px;
+padding:15px;
+text-align:center;
+transition:.3s;
+}
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 0 20px rgba(0,198,255,0.6);
+}
+
+/* ===== ICON ===== */
+.card i{
+font-size:42px;
+margin-bottom:10px;
+color:#00d4ff;
+cursor:pointer;
+transition:.4s;
+}
+.card i:active{
+transform:rotate(360deg) scale(1.3);
+}
+
+/* ===== TEXT ===== */
+.card h3{margin-bottom:6px}
+.card p{color:#00ffea;margin-bottom:10px}
+
+/* ===== BUTTON ===== */
+.card button{
+padding:8px 14px;
+border:none;
+border-radius:20px;
+background:#00d4ff;
+color:#000;
+cursor:pointer;
+transition:.3s;
+}
+.card button:hover{
+background:#fff;
+transform:scale(1.1);
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:480px){
+.packages{grid-template-columns:repeat(2,1fr)}
+}
+</style>
 </head>
+
 <body>
 
-<header class="header">
-  <div class="logo">
-    <i class="fa-solid fa-bolt"></i> Takibcial
-  </div>
+<header>
+<div class="logo">⚡ Takibcial</div>
 </header>
 
-<!-- PLATFORM SEÇİMİ -->
-<section class="platforms">
-  <button onclick="showPlatform('instagram')">
-    <i class="fab fa-instagram"></i> Instagram
-  </button>
-  <button onclick="showPlatform('tiktok')">
-    <i class="fab fa-tiktok"></i> TikTok
-  </button>
-</section>
+<!-- PLATFORM SELECTION -->
+<div class="platforms">
+<button onclick="show('instagram')"><i class="fab fa-instagram"></i> Instagram</button>
+<button onclick="show('tiktok')"><i class="fab fa-tiktok"></i> TikTok</button>
+<button onclick="show('youtube')"><i class="fab fa-youtube"></i> YouTube</button>
+</div>
 
 <!-- INSTAGRAM -->
 <section id="instagram" class="services active">
+<h2><i class="fab fa-instagram"></i> Instagram Xidmətləri</h2>
+<div class="packages">
 
-  <h2><i class="fab fa-instagram"></i> Instagram Paketləri</h2>
+<div class="card">
+<i class="fab fa-instagram"></i>
+<h3>1000 Takibçi</h3>
+<p>6 AZN</p>
+<button onclick="order('Instagram 1000 Takibçi')">Sifariş</button>
+</div>
 
-  <div class="packages">
+<div class="card">
+<i class="fas fa-heart"></i>
+<h3>1000 Bəyəni</h3>
+<p>2 AZN</p>
+<button onclick="order('Instagram 1000 Bəyəni')">Sifariş</button>
+</div>
 
-    <!-- CARD -->
-    <div class="card">
-      <h3>1000 Takibçi</h3>
-      <p>6 AZN</p>
-      <button onclick="order('Instagram 1000 Takibçi')">Sifariş</button>
-    </div>
+<div class="card">
+<i class="fas fa-eye"></i>
+<h3>5000 Baxış</h3>
+<p>3 AZN</p>
+<button onclick="order('Instagram 5000 Baxış')">Sifariş</button>
+</div>
 
-    <div class="card">
-      <h3>2000 Takibçi</h3>
-      <p>12 AZN</p>
-      <button onclick="order('Instagram 2000 Takibçi')">Sifariş</button>
-    </div>
+<div class="card">
+<i class="fas fa-users"></i>
+<h3>10.000 Takibçi</h3>
+<p>55 AZN</p>
+<button onclick="order('Instagram 10000 Takibçi')">Sifariş</button>
+</div>
 
-    <div class="card">
-      <h3>3000 Takibçi</h3>
-      <p>18 AZN</p>
-      <button onclick="order('Instagram 3000 Takibçi')">Sifariş</button>
-    </div>
-
-    <div class="card">
-      <h3>5000 Takibçi</h3>
-      <p>28 AZN</p>
-      <button onclick="order('Instagram 5000 Takibçi')">Sifariş</button>
-    </div>
-
-    <div class="card">
-      <h3>10.000 Takibçi</h3>
-      <p>55 AZN</p>
-      <button onclick="order('Instagram 10000 Takibçi')">Sifariş</button>
-    </div>
-
-  </div>
+</div>
 </section>
 
 <!-- TIKTOK -->
 <section id="tiktok" class="services">
+<h2><i class="fab fa-tiktok"></i> TikTok Xidmətləri</h2>
+<div class="packages">
 
-  <h2><i class="fab fa-tiktok"></i> TikTok Paketləri</h2>
+<div class="card">
+<i class="fab fa-tiktok"></i>
+<h3>1000 Takibçi</h3>
+<p>5 AZN</p>
+<button onclick="order('TikTok 1000 Takibçi')">Sifariş</button>
+</div>
 
-  <div class="packages">
+<div class="card">
+<i class="fas fa-eye"></i>
+<h3>10.000 Baxış</h3>
+<p>4 AZN</p>
+<button onclick="order('TikTok 10000 Baxış')">Sifariş</button>
+</div>
 
-    <div class="card">
-      <h3>1000 Takibçi</h3>
-      <p>5 AZN</p>
-      <button onclick="order('TikTok 1000 Takibçi')">Sifariş</button>
-    </div>
+</div>
+</section>
 
-    <div class="card">
-      <h3>5000 Baxış</h3>
-      <p>3 AZN</p>
-      <button onclick="order('TikTok 5000 Baxış')">Sifariş</button>
-    </div>
+<!-- YOUTUBE -->
+<section id="youtube" class="services">
+<h2><i class="fab fa-youtube"></i> YouTube Xidmətləri</h2>
+<div class="packages">
 
-  </div>
+<div class="card">
+<i class="fab fa-youtube"></i>
+<h3>1000 Abunə</h3>
+<p>10 AZN</p>
+<button onclick="order('YouTube 1000 Abunə')">Sifariş</button>
+</div>
+
+<div class="card">
+<i class="fas fa-eye"></i>
+<h3>5000 Baxış</h3>
+<p>5 AZN</p>
+<button onclick="order('YouTube 5000 Baxış')">Sifariş</button>
+</div>
+
+</div>
 </section>
 
 <!-- CLICK SOUND -->
-<audio id="clickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-mouse-click-close-1113.mp3"></audio>
+<audio id="click">
+<source src="https://assets.mixkit.co/sfx/preview/mixkit-mouse-click-close-1113.mp3">
+</audio>
 
-<script src="script.js"></script>
+<script>
+const click=document.getElementById("click");
+
+document.addEventListener("click",()=>{
+click.currentTime=0;
+click.play();
+});
+
+function show(id){
+document.querySelectorAll(".services").forEach(s=>s.classList.remove("active"));
+document.getElementById(id).classList.add("active");
+}
+
+function order(text){
+let phone="994709006777";
+let url=`https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+window.open(url,"_blank");
+}
+</script>
+
 </body>
 </html>
