@@ -2,160 +2,233 @@
 <html lang="az">
 <head>
 <meta charset="UTF-8">
-<title>Takibcial – Premium SMM Panel</title>
+<title>Takibcial • Premium SMM Panel</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- ICONS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
-*{box-sizing:border-box}
+/* ================= RESET ================= */
+*{margin:0;padding:0;box-sizing:border-box}
+
+/* ================= BODY ================= */
 body{
-    margin:0;
     font-family:'Segoe UI',sans-serif;
-    background:linear-gradient(135deg,#071a52,#00112b);
+    background:linear-gradient(135deg,#06162f,#020b1c);
     color:#fff;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
 header{
-    padding:25px;
+    padding:22px;
     text-align:center;
-    font-size:30px;
+    font-size:28px;
     font-weight:700;
-    letter-spacing:1px;
     color:#4dd2ff;
+    letter-spacing:1px;
 }
 
-/* NAV */
+/* ================= NAV ================= */
 nav{
     display:flex;
     justify-content:center;
-    gap:25px;
-    padding-bottom:20px;
+    gap:20px;
+    padding-bottom:15px;
 }
 nav a{
-    color:#fff;
-    text-decoration:none;
-    font-weight:500;
-    opacity:.85;
-}
-nav a:hover{opacity:1}
-
-/* HERO */
-.hero{
-    text-align:center;
-    padding:40px 20px;
-}
-.hero h1{
-    font-size:38px;
-    margin-bottom:10px;
-}
-.hero p{
     color:#cfe9ff;
+    text-decoration:none;
+    font-size:15px;
+}
+nav a:hover{color:#fff}
+
+/* ================= SECTION TITLE ================= */
+.section-title{
+    text-align:center;
+    font-size:24px;
+    margin:30px 0 10px;
+    color:#4dd2ff;
 }
 
-/* CARDS */
+/* ================= GRID ================= */
 .container{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:25px;
-    padding:30px;
+    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+    gap:18px;
+    padding:20px;
 }
 
+/* ================= CARD ================= */
 .card{
-    background:rgba(255,255,255,0.08);
-    border-radius:22px;
-    padding:25px;
+    background:rgba(255,255,255,0.07);
+    border-radius:20px;
+    padding:18px;
     text-align:center;
-    backdrop-filter:blur(12px);
-    box-shadow:0 0 30px rgba(0,140,255,0.5);
+    backdrop-filter:blur(14px);
+    box-shadow:0 0 25px rgba(0,140,255,0.45);
     transition:.25s;
 }
 .card:hover{
-    transform:translateY(-6px) scale(1.02);
+    transform:translateY(-5px) scale(1.03);
 }
 
-.card h3{color:#4dd2ff}
-.price{
-    font-size:22px;
-    color:#00ffee;
-    margin:12px 0;
+/* ================= ICON ================= */
+.card i{
+    font-size:34px;
+    margin-bottom:10px;
 }
+.ig{color:#ff5ccd}
+.yt{color:#ff4d4d}
+.tg{color:#4dd2ff}
+.wa{color:#25d366}
 
-/* BUTTON */
+/* ================= TEXT ================= */
+.card h3{font-size:15px;margin-bottom:5px}
+.price{color:#00ffee;font-weight:600;margin:6px 0}
+
+/* ================= BUTTON ================= */
 .btn{
     display:inline-block;
-    padding:14px 30px;
+    padding:10px 18px;
+    border-radius:30px;
     background:linear-gradient(135deg,#00c6ff,#0072ff);
-    border-radius:40px;
     color:#fff;
     text-decoration:none;
+    font-size:13px;
     font-weight:600;
-    box-shadow:0 0 18px rgba(0,180,255,0.8);
+    box-shadow:0 0 14px rgba(0,180,255,.8);
 }
 .btn:hover{opacity:.9}
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 footer{
     text-align:center;
-    padding:20px;
-    font-size:14px;
+    padding:18px;
+    font-size:13px;
     color:#aaa;
+}
+
+/* ================= MOBILE FIX ================= */
+@media(min-width:600px){
+    .container{
+        grid-template-columns:repeat(3,1fr);
+    }
 }
 </style>
 </head>
 
 <body>
 
-<header>💎 Takibcial – Premium SMM Panel</header>
+<header>💎 Takibcial Premium SMM Panel</header>
 
 <nav>
-<a href="#">Ana Səhifə</a>
-<a href="#">Xidmətlər</a>
-<a href="#">Qiymətlər</a>
-<a href="https://wa.me/994709006777" target="_blank">Əlaqə</a>
+<a href="#">Instagram</a>
+<a href="#">YouTube</a>
+<a href="#">Telegram</a>
+<a href="#">WhatsApp</a>
 </nav>
 
-<div class="hero">
-<h1>Sosial Media Xidmətləri</h1>
-<p>Sürətli • Təhlükəsiz • Ucuz • Premium Keyfiyyət</p>
+<!-- ================= INSTAGRAM ================= -->
+<div class="section-title">
+<i class="fa-brands fa-instagram ig"></i> Instagram Paketləri
 </div>
 
 <div class="container">
 
 <div class="card">
-<h3>Instagram Like</h3>
-<p>1000 Like</p>
-<div class="price">5 AZN</div>
-<a class="btn" href="https://wa.me/994709006777?text=Instagram+1000+Like" target="_blank">Sifariş et</a>
+<i class="fa-brands fa-instagram ig"></i>
+<h3>1000 Takibçi</h3>
+<div class="price">6 AZN</div>
+<a class="btn" href="https://wa.me/994709006777?text=Instagram+1000+Takibçi">Sifariş et</a>
 </div>
 
 <div class="card">
-<h3>Instagram Follow</h3>
-<p>1000 Follow</p>
-<div class="price">7 AZN</div>
-<a class="btn" href="https://wa.me/994709006777?text=Instagram+1000+Follow" target="_blank">Sifariş et</a>
+<i class="fa-brands fa-instagram ig"></i>
+<h3>2000 Takibçi</h3>
+<div class="price">12 AZN</div>
+<a class="btn" href="https://wa.me/994709006777?text=Instagram+2000+Takibçi">Sifariş et</a>
 </div>
 
 <div class="card">
-<h3>TikTok İzleyici</h3>
-<p>1000 İzleyici</p>
-<div class="price">9 AZN</div>  
-    <p>2000 İzleyici</p>
-<div class="price">17 AZN</div>
-<a class="btn" href="https://wa.me/994709006777?text=TikTok+1000+Izleyici" target="_blank">Sifariş et</a>
+<i class="fa-brands fa-instagram ig"></i>
+<h3>3000 Takibçi</h3>
+<div class="price">18 AZN</div>
+<a class="btn" href="https://wa.me/994709006777?text=Instagram+3000+Takibçi">Sifariş et</a>
+</div>
+
+<div class="card">
+<i class="fa-brands fa-instagram ig"></i>
+<h3>4000 Takibçi</h3>
+<div class="price">24 AZN</div>
+<a class="btn" href="https://wa.me/994709006777?text=Instagram+4000+Takibçi">Sifariş et</a>
+</div>
+
+<div class="card">
+<i class="fa-brands fa-instagram ig"></i>
+<h3>5000 Takibçi</h3>
+<div class="price">28 AZN</div>
+<a class="btn" href="https://wa.me/994709006777?text=Instagram+5000+Takibçi">Sifariş et</a>
+</div>
+
+<div class="card">
+<i class="fa-brands fa-instagram ig"></i>
+<h3>10.000 Takibçi</h3>
+<div class="price">55 AZN</div>
+<a class="btn" href="https://wa.me/994709006777?text=Instagram+10000+Takibçi">Sifariş et</a>
+</div>
+
+<div class="card">
+<i class="fa-brands fa-instagram ig"></i>
+<h3>15.000 Takibçi</h3>
+<div class="price">75 AZN</div>
+<a class="btn" href="https://wa.me/994709006777?text=Instagram+15000+Takibçi">Sifariş et</a>
+</div>
+
+<div class="card">
+<i class="fa-brands fa-instagram ig"></i>
+<h3>20.000 Takibçi</h3>
+<div class="price">90 AZN</div>
+<a class="btn" href="https://wa.me/994709006777?text=Instagram+20000+Takibçi">Sifariş et</a>
+</div>
+
+<div class="card">
+<i class="fa-brands fa-instagram ig"></i>
+<h3>50.000 Takibçi</h3>
+<div class="price">170 AZN</div>
+<a class="btn" href="https://wa.me/994709006777?text=Instagram+50000+Takibçi">Sifariş et</a>
+</div>
+
+<div class="card">
+<i class="fa-brands fa-instagram ig"></i>
+<h3>100.000 Takibçi</h3>
+<div class="price">340 AZN</div>
+<a class="btn" href="https://wa.me/994709006777?text=Instagram+100000+Takibçi">Sifariş et</a>
 </div>
 
 </div>
+
+<!-- ================= EMPTY SECTIONS ================= -->
+<div class="section-title"><i class="fa-brands fa-youtube yt"></i> YouTube (tezliklə)</div>
+<div class="container"><div class="card">Paketlər əlavə olunacaq</div></div>
+
+<div class="section-title"><i class="fa-brands fa-telegram tg"></i> Telegram (tezliklə)</div>
+<div class="container"><div class="card">Paketlər əlavə olunacaq</div></div>
+
+<div class="section-title"><i class="fa-brands fa-whatsapp wa"></i> WhatsApp (tezliklə)</div>
+<div class="container"><div class="card">Paketlər əlavə olunacaq</div></div>
 
 <footer>
-© 2026 Takibcial.com – Bütün hüquqlar qorunur
+© 2026 Takibcial.com • Premium SMM Panel
 </footer>
 
-<!-- 🔊 CLICK SOUND -->
-<audio id="clickSound" src="mouse-click.mp3"></audio>
+<!-- ================= CLICK SOUND ================= -->
+<audio id="clickSound" src="click.mp3"></audio>
 <script>
 document.addEventListener("click",()=>{
- let s=document.getElementById("clickSound");
- s.currentTime=0; s.play();
+  let s=document.getElementById("clickSound");
+  s.currentTime=0;
+  s.play();
 });
 </script>
 
