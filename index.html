@@ -7,170 +7,287 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
+/* ================= RESET & BASE ================= */
 *{margin:0;padding:0;box-sizing:border-box}
 body{
     font-family:'Segoe UI',sans-serif;
     background:linear-gradient(135deg,#06162f,#020b1c);
     color:#fff;
-    min-height:100vh;
+    line-height: 1.6;
+    min-height: 100vh;
 }
-header{text-align:center;padding:30px;font-size:32px;color:#4dd2ff;font-weight:700}
+
+/* ================= HEADER & NAV ================= */
+header{
+    padding:30px 20px;
+    text-align:center;
+    font-size:32px;
+    font-weight:700;
+    color:#4dd2ff;
+    text-transform: uppercase;
+    letter-spacing:2px;
+}
 nav{
-    display:flex;justify-content:center;gap:10px;
-    padding:15px;position:sticky;top:0;
-    background:rgba(6,22,47,.95);z-index:1000
+    display:flex;
+    justify-content:center;
+    flex-wrap: wrap;
+    gap:10px;
+    padding:15px;
+    position: sticky;
+    top: 0;
+    background: rgba(6, 22, 47, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(77, 210, 255, 0.2);
 }
-.tab-btn{
-    padding:10px 20px;border:1px solid #4dd2ff;
-    background:transparent;color:#4dd2ff;
-    border-radius:25px;cursor:pointer
+.tab-btn {
+    padding: 10px 20px;
+    border: 1px solid #4dd2ff;
+    background: transparent;
+    color: #4dd2ff;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
 }
-.tab-btn.active{background:#4dd2ff;color:#020b1c}
+.tab-btn.active {
+    background: #4dd2ff;
+    color: #020b1c;
+    box-shadow: 0 0 15px rgba(77, 210, 255, 0.5);
+}
 
-/* ===== SPIN ===== */
-#wheel-container{
-    text-align:center;margin:30px auto;width:320px;
-    padding:20px;border:1px dashed #4dd2ff;border-radius:20px
+/* ================= ENDİRİM ÇARXI (YENİLƏNDİ) ================= */
+#wheel-container {
+    text-align: center;
+    margin: 30px auto;
+    width: 320px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    border: 1px dashed #4dd2ff;
 }
-#wheel-box{position:relative;width:250px;height:250px;margin:auto}
-#wheel{
-    width:100%;height:100%;border-radius:50%;
-    border:5px solid #4dd2ff;
-    transition:transform 4s cubic-bezier(.15,0,.15,1);
-    background:conic-gradient(
-        #ff5ccd 0% 16.6%,
-        #00c6ff 16.6% 33.2%,
-        #25d366 33.2% 49.8%,
-        #ff4d4d 49.8% 66.4%,
-        #f1c40f 66.4% 83%,
-        #9b59b6 83% 100%
+#wheel-box {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    margin: 0 auto;
+}
+#wheel {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 5px solid #4dd2ff;
+    transition: transform 4s cubic-bezier(0.15, 0, 0.15, 1);
+    background: conic-gradient(
+        #ff5ccd 0deg 60deg, 
+        #00c6ff 60deg 120deg, 
+        #25d366 120deg 180deg, 
+        #ff4d4d 180deg 240deg, 
+        #f1c40f 240deg 300deg, 
+        #9b59b6 300deg 360deg
     );
+    position: relative;
 }
-.wheel-pointer{
-    position:absolute;top:-15px;left:50%;
-    transform:translateX(-50%);
-    border-left:15px solid transparent;
-    border-right:15px solid transparent;
-    border-top:25px solid #fff
+/* Çarxın üzərindəki yazılar */
+.wheel-text {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0; left: 0;
 }
-#wheel-text{
-    position:absolute;top:50%;left:50%;
-    transform:translate(-50%,-50%);
-    font-size:22px;font-weight:800;color:#fff;
-    text-shadow:0 0 10px #000
+.wheel-text span {
+    position: absolute;
+    width: 50%;
+    height: 50px;
+    top: 50%;
+    left: 50%;
+    transform-origin: 0% 50%;
+    text-align: right;
+    padding-right: 20px;
+    font-weight: 900;
+    color: #fff;
+    font-size: 16px;
+    text-shadow: 1px 1px 3px #000;
 }
-#spin-btn{
-    margin-top:15px;padding:10px 30px;
-    background:#00ffee;border:none;border-radius:25px;
-    font-weight:700;cursor:pointer
-}
-.hidden{display:none}
+.wheel-text span:nth-child(1) { transform: translateY(-50%) rotate(30deg); }  /* 3% */
+.wheel-text span:nth-child(2) { transform: translateY(-50%) rotate(90deg); }  /* 5% */
+.wheel-text span:nth-child(3) { transform: translateY(-50%) rotate(150deg); } /* 10% */
+.wheel-text span:nth-child(4) { transform: translateY(-50%) rotate(210deg); } /* 7% */
+.wheel-text span:nth-child(5) { transform: translateY(-50%) rotate(270deg); } /* 50% vizual */
+.wheel-text span:nth-child(6) { transform: translateY(-50%) rotate(330deg); } /* 3% */
 
-/* ===== CONTENT ===== */
-.platform-content{display:none}
-.platform-content.active{display:block}
-.section-title{text-align:center;margin:30px 0;color:#4dd2ff;font-size:22px}
-.container{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-    gap:15px;padding:20px;max-width:1200px;margin:auto
+.wheel-pointer {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0; height: 0; 
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 25px solid #fff;
+    z-index: 10;
 }
-.card{
-    background:rgba(255,255,255,.05);
-    border-radius:15px;padding:20px;text-align:center
+#spin-btn {
+    margin-top: 20px; padding: 12px 30px;
+    background: #00ffee; border: none; border-radius: 25px;
+    font-weight: bold; cursor: pointer; color: #020b1c;
 }
-.price{color:#00ffee;font-size:18px;font-weight:700}
-.btn{
-    display:block;margin-top:10px;
-    background:linear-gradient(135deg,#00c6ff,#0072ff);
-    color:#fff;padding:10px;border-radius:8px;
-    text-decoration:none
+#wheel-msg { margin-top: 15px; font-weight: 600; color: #4dd2ff; }
+
+/* ================= CONTENT & CARDS ================= */
+.platform-content { display: none; animation: fadeIn 0.5s ease; }
+.platform-content.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.section-title { text-align: center; font-size: 24px; margin: 40px 0 20px; color: #4dd2ff; }
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 15px; padding: 20px; max-width: 1200px; margin: 0 auto;
 }
-footer{text-align:center;padding:40px;color:#666}
+.card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 15px; padding: 20px; text-align: center; transition: 0.3s;
+}
+.card:hover { transform: translateY(-5px); border-color: #4dd2ff; }
+.card i { font-size: 28px; margin-bottom: 12px; }
+.ig {color: #ff5ccd} .tk {color: #00f2ea}
+.price { color: #00ffee; font-size: 18px; font-weight: 700; margin-bottom: 12px; }
+
+.btn {
+    display: block; padding: 10px; border-radius: 8px;
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    color: #fff; text-decoration: none; font-size: 13px; font-weight: 600;
+}
+
+footer { text-align: center; padding: 50px; color: #666; font-size: 13px; }
+@media(min-width: 768px) { .container { grid-template-columns: repeat(4, 1fr); } }
 </style>
 </head>
-
 <body>
 
 <header>💎 Takibcial</header>
 
 <nav>
-<button class="tab-btn active" onclick="showPlatform('instagram',this)">Instagram</button>
-<button class="tab-btn" onclick="showPlatform('tiktok',this)">TikTok</button>
+    <button class="tab-btn active" onclick="showPlatform('instagram')">Instagram</button>
+    <button class="tab-btn" onclick="showPlatform('tiktok')">TikTok</button>
 </nav>
 
-<!-- SPIN -->
 <div id="wheel-container">
-<div id="wheel-box">
-<div class="wheel-pointer"></div>
-<div id="wheel"></div>
-<div id="wheel-text">?</div>
-</div>
-<button id="spin-btn" onclick="spinWheel()">Endirim Qazan!</button>
-<p id="wheel-msg">Yalnız 1 dəfə</p>
+    <div id="wheel-box">
+        <div class="wheel-pointer"></div>
+        <div id="wheel">
+            <div class="wheel-text">
+                <span>3%</span><span>5%</span><span>10%</span><span>7%</span><span>50%</span><span>3%</span>
+            </div>
+        </div>
+    </div>
+    <button id="spin-btn" onclick="spinWheel()">Endirim Qazan!</button>
+    <p id="wheel-msg">Hər kəs yalnız 1 dəfə istifadə edə bilər!</p>
 </div>
 
-<!-- INSTAGRAM -->
 <div id="instagram" class="platform-content active">
-<div class="section-title">Instagram Takibçi</div>
-<div class="container">
-<div class="card"><h3>1000 Takibçi</h3><div class="price">6 AZN</div><a class="btn" href="https://wa.me/994709006777?text=IG-1000">Sifariş et</a></div>
-<div class="card"><h3>5000 Takibçi</h3><div class="price">28 AZN</div><a class="btn" href="https://wa.me/994709006777?text=IG-5000">Sifariş et</a></div>
-<div class="card"><h3>10.000 Takibçi</h3><div class="price">55 AZN</div><a class="btn" href="https://wa.me/994709006777?text=IG-10000">Sifariş et</a></div>
-</div>
+    
+    <div class="section-title"><i class="fa-brands fa-instagram ig"></i> Instagram Takibçi</div>
+    <div class="container">
+        <div class="card"><h3>1000 Takibçi</h3><div class="price">6 AZN</div><a class="btn" href="https://wa.me/994709006777?text=IG-Takibci-1000">Sifariş et</a></div>
+        <div class="card"><h3>2000 Takibçi</h3><div class="price">12 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><h3>3000 Takibçi</h3><div class="price">18 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><h3>4000 Takibçi</h3><div class="price">24 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><h3>5000 Takibçi</h3><div class="price">28 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><h3>10.000 Takibçi</h3><div class="price">55 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><h3>20.000 Takibçi</h3><div class="price">90 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><h3>50.000 Takibçi</h3><div class="price">170 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+    </div>
+
+    <div class="section-title"><i class="fa-solid fa-heart ig"></i> Instagram Bəyəni</div>
+    <div class="container">
+        <div class="card"><h3>100 Bəyəni</h3><div class="price">0.50 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><h3>500 Bəyəni</h3><div class="price">1 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><h3>1000 Bəyəni</h3><div class="price">1.99 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><h3>2000 Bəyəni</h3><div class="price">2.99 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><h3>5000 Bəyəni</h3><div class="price">10.99 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><h3>10.000 Bəyəni</h3><div class="price">17.99 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><h3>50.000 Bəyəni</h3><div class="price">67 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><h3>100.000 Bəyəni</h3><div class="price">109 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+    </div>
+
+    <div class="section-title"><i class="fa-solid fa-eye ig"></i> Instagram Baxış</div>
+    <div class="container">
+        <div class="card"><h3>1000 Baxış</h3><div class="price">0.99 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><h3>10.000 Baxış</h3><div class="price">5.99 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><h3>100.000 Baxış</h3><div class="price">12.99 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><h3>1.000.000 Baxış</h3><div class="price">22.99 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+    </div>
 </div>
 
-<!-- TIKTOK -->
 <div id="tiktok" class="platform-content">
-<div class="section-title">TikTok Takibçi</div>
-<div class="container">
-<div class="card"><h3>1000 Takibçi</h3><div class="price">9 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-1000">Sifariş et</a></div>
-<div class="card"><h3>10.000 Takibçi</h3><div class="price">65 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-10000">Sifariş et</a></div>
-</div>
+    <div class="section-title"><i class="fa-brands fa-tiktok tk"></i> TikTok Takibçi</div>
+    <div class="container">
+        <div class="card"><h3>1000 Takibçi</h3><div class="price">9 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><h3>2000 Takibçi</h3><div class="price">17 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><h3>5000 Takibçi</h3><div class="price">42 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><h3>10.000 Takibçi</h3><div class="price">65 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><h3>20.000 Takibçi</h3><div class="price">120 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><h3>50.000 Takibçi</h3><div class="price">550 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><h3>100.000 Takibçi</h3><div class="price">1035 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+    </div>
+
+    <div class="section-title"><i class="fa-solid fa-play tk"></i> TikTok Baxış</div>
+    <div class="container">
+        <div class="card"><h3>1000 Baxış</h3><div class="price">0.99 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><h3>10.000 Baxış</h3><div class="price">5.99 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><h3>100.000 Baxış</h3><div class="price">12.99 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+        <div class="card"><h3>1.000.000 Baxış</h3><div class="price">22.99 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+    </div>
 </div>
 
-<footer>© 2026 Takibcial.com</footer>
+<footer>© 2026 Takibcial.com • Bütün hüquqlar qorunur.</footer>
 
 <script>
-function showPlatform(id,btn){
-document.querySelectorAll('.platform-content').forEach(x=>x.classList.remove('active'))
-document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'))
-document.getElementById(id).classList.add('active')
-btn.classList.add('active')
+function showPlatform(id) {
+    document.querySelectorAll('.platform-content').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.currentTarget.classList.add('active');
 }
 
-const wheel=document.getElementById('wheel')
-const text=document.getElementById('wheel-text')
-const msg=document.getElementById('wheel-msg')
-const btn=document.getElementById('spin-btn')
+const wheel = document.getElementById('wheel');
+const msg = document.getElementById('wheel-msg');
+const btn = document.getElementById('spin-btn');
 
-const prizes=[
-{label:"3%",deg:1830},
-{label:"5%",deg:1890},
-{label:"7%",deg:1950},
-{label:"10%",deg:2010},
-{label:"5%",deg:2070},
-{label:"3%",deg:2130},
-]
+// 50% endirim 270 dərəcəlik sektordur (yəni indeks 4), amma prizes-də onu çağırmırıq.
+const prizes = [
+    { label: "3%", deg: 1830 }, { label: "5%", deg: 1890 }, 
+    { label: "10%", deg: 1950 }, { label: "7%", deg: 2010 }, 
+    { label: "3%", deg: 2130 }
+];
 
-if(localStorage.getItem('used')){
-text.innerText=localStorage.getItem('res')
-btn.classList.add('hidden')
-}
+window.onload = function() {
+    if (localStorage.getItem('wheelUsed')) {
+        msg.innerHTML = "Sizin qazancınız: " + localStorage.getItem('wheelRes') + " Endirim";
+        btn.style.display = 'none';
+        wheel.style.transform = "rotate(" + localStorage.getItem('wheelDeg') + "deg)";
+    }
+};
 
-function spinWheel(){
-if(localStorage.getItem('used'))return
-const p=prizes[Math.floor(Math.random()*prizes.length)]
-wheel.style.transform=`rotate(${p.deg}deg)`
-text.innerText=p.label
-setTimeout(()=>{
-msg.innerText="Endirim: "+p.label
-localStorage.setItem('used',1)
-localStorage.setItem('res',p.label)
-btn.classList.add('hidden')
-},4000)
+function spinWheel() {
+    if (localStorage.getItem('wheelUsed')) return;
+    const p = prizes[Math.floor(Math.random() * prizes.length)];
+    wheel.style.transform = `rotate(${p.deg}deg)`;
+    btn.disabled = true;
+    btn.innerText = "Fırlanır...";
+
+    setTimeout(() => {
+        msg.innerHTML = "Təbriklər! " + p.label + " endirim qazandınız.";
+        localStorage.setItem('wheelUsed', 'true');
+        localStorage.setItem('wheelRes', p.label);
+        localStorage.setItem('wheelDeg', p.deg % 360);
+        btn.style.display = 'none';
+        alert("Sizin " + p.label + " endiriminiz aktivləşdi! Sifariş zamanı bildirin.");
+    }, 4000);
 }
 </script>
-
 </body>
 </html>
