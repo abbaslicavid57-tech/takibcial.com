@@ -1,0 +1,47 @@
+body{
+  margin:0;
+  font-family:Arial;
+  background:linear-gradient(270deg,#001f3f,#003366,#004c99);
+  background-size:600% 600%;
+  animation:bg 15s infinite;
+  color:white;
+}
+@keyframes bg{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+header{
+  text-align:center;
+  padding:20px;
+  font-size:26px;
+}
+
+.logo span{color:#00c3ff}
+
+.packages{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+  padding:15px;
+}
+
+.card{
+  background:#002b55;
+  padding:15px;
+  border-radius:15px;
+  text-align:center;
+  box-shadow:0 0 20px #00c3ff;
+}
+
+.card img{width:60px}
+
+.card button{
+  width:100%;
+  padding:10px;
+  border:none;
+  border-radius:10px;
+  background:#00c3ff;
+  font-weight:bold;
+}
