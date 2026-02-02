@@ -2,163 +2,99 @@
 <html lang="az">
 <head>
   <meta charset="UTF-8">
-  <title>SMM Panel-Takibcial.com</title>
-  <title>İnstagram panel_xidmeti_aktivlik</title>
-  <title>OWNER_070-900-67-77</title>
+  <title>Takibcial.com | SMM Panel</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
 
-<header>
-  <div class="logo">SMM<span>Panel</span></div>
+<header class="header">
+  <div class="logo">
+    <i class="fa-solid fa-bolt"></i> Takibcial
+  </div>
 </header>
 
-<h1>Instagram Paketləri</h1>
+<!-- PLATFORM SEÇİMİ -->
+<section class="platforms">
+  <button onclick="showPlatform('instagram')">
+    <i class="fab fa-instagram"></i> Instagram
+  </button>
+  <button onclick="showPlatform('tiktok')">
+    <i class="fab fa-tiktok"></i> TikTok
+  </button>
+</section>
 
-<div class="packages">
-  <div class="card">
-    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png">
-    <h3>500 Takibçi</h3>
-    <p>3 AZN</p>
-    <button onclick="order(500,3azn)">Sifariş</button>
+<!-- INSTAGRAM -->
+<section id="instagram" class="services active">
+
+  <h2><i class="fab fa-instagram"></i> Instagram Paketləri</h2>
+
+  <div class="packages">
+
+    <!-- CARD -->
+    <div class="card">
+      <h3>1000 Takibçi</h3>
+      <p>6 AZN</p>
+      <button onclick="order('Instagram 1000 Takibçi')">Sifariş</button>
     </div>
 
-  <audio id="click" src="https://assets.mixkit.co/sfx/preview/mixkit-mouse-click-close-1113.mp3"></audio>
-
-
-<div class="packages">
-  <div class="card">
-    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png">
-    <h3>1000 Takibçi</h3>
-    <p>6 AZN</p>
-    <button onclick="order(1000,6azn)">Sifariş</button>
-  </div>
-
-  
-<audio id="click" src="https://assets.mixkit.co/sfx/preview/mixkit-mouse-click-close-1113.mp3"></audio>
-
-
-  <div class="card">
-    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png">
-    <h3>2000 Takibçi</h3>
-    <p>12 AZN</p>
-    <button onclick="order(2000,12azn)">Sifariş</button>
-  </div>
-</div>
-
-  <audio id="click" src="https://assets.mixkit.co/sfx/preview/mixkit-mouse-click-close-1113.mp3"></audio>
-
-
-  
-  <div class="card">
-    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png">
-    <h3>3000 Takibçi</h3>
-    <p>18 AZN</p>
-    <button onclick="order(3000,18azn)">Sifariş</button>
-  </div>
-</div>
-
-  
-  <div class="card">
-    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png">
-    <h3>4000 Takibçi</h3>
-    <p>24 AZN</p>
-    <button onclick="order(4000,24azn)">Sifariş</button>
-  </div>
-</div>
-
-<audio id="click" src="https://assets.mixkit.co/sfx/preview/mixkit-mouse-click-close-1113.mp3"></audio>
-
+    <div class="card">
+      <h3>2000 Takibçi</h3>
+      <p>12 AZN</p>
+      <button onclick="order('Instagram 2000 Takibçi')">Sifariş</button>
+    </div>
 
     <div class="card">
-    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png">
-    <h3>5000 Takibçi</h3>
-    <p>28 AZN</p>
-    <button onclick="order(5000,28azn)">Sifariş</button>
-  </div>
-</div>
-<audio id="click" src="https://assets.mixkit.co/sfx/preview/mixkit-mouse-click-close-1113.mp3"></audio>
-
-  
-
-  
+      <h3>3000 Takibçi</h3>
+      <p>18 AZN</p>
+      <button onclick="order('Instagram 3000 Takibçi')">Sifariş</button>
+    </div>
 
     <div class="card">
-    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png">
-    <h3>7000 Takibçi</h3>
-    <p>35 AZN</p>
-    <button onclick="order(7000,35azn)">Sifariş</button>
+      <h3>5000 Takibçi</h3>
+      <p>28 AZN</p>
+      <button onclick="order('Instagram 5000 Takibçi')">Sifariş</button>
+    </div>
+
+    <div class="card">
+      <h3>10.000 Takibçi</h3>
+      <p>55 AZN</p>
+      <button onclick="order('Instagram 10000 Takibçi')">Sifariş</button>
+    </div>
+
   </div>
-</div>
+</section>
 
-  <audio id="click" src="https://assets.mixkit.co/sfx/preview/mixkit-mouse-click-close-1113.mp3"></audio>
+<!-- TIKTOK -->
+<section id="tiktok" class="services">
 
+  <h2><i class="fab fa-tiktok"></i> TikTok Paketləri</h2>
 
-   <div class="card">
-    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png">
-    <h3>10000 Takibçi</h3>
-    <p>55 AZN</p>
-    <button onclick="order(10000,55azn)">Sifariş</button>
+  <div class="packages">
+
+    <div class="card">
+      <h3>1000 Takibçi</h3>
+      <p>5 AZN</p>
+      <button onclick="order('TikTok 1000 Takibçi')">Sifariş</button>
+    </div>
+
+    <div class="card">
+      <h3>5000 Baxış</h3>
+      <p>3 AZN</p>
+      <button onclick="order('TikTok 5000 Baxış')">Sifariş</button>
+    </div>
+
   </div>
-</div>
+</section>
 
-  <audio id="click" src="https://assets.mixkit.co/sfx/preview/mixkit-mouse-click-close-1113.mp3"></audio>
+<!-- CLICK SOUND -->
+<audio id="clickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-mouse-click-close-1113.mp3"></audio>
 
-
-  
-
-   <div class="card">
-    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png">
-    <h3>15000 Takibçi</h3>
-    <p>75 AZN</p>
-    <button onclick="order(15000,75azn)">Sifariş</button>
-  </div>
-</div>
-
-  <audio id="click" src="https://assets.mixkit.co/sfx/preview/mixkit-mouse-click-close-1113.mp3"></audio>
-
-
-   <div class="card">
-    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png">
-    <h3>20000 Takibçi</h3>
-    <p>90 AZN</p>
-    <button onclick="order(20000,90azn)">Sifariş</button>
-  </div>
-</div>
-
-  <audio id="click" src="https://assets.mixkit.co/sfx/preview/mixkit-mouse-click-close-1113.mp3"></audio
-  
-                                                                                                   <div class="card">
-    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png">
-    <h3>20000 Takibçi</h3>
-    <p>90 AZN</p>
-    <button onclick="order(20000,90azn)">Sifariş</button>
-  </div>
-</div>
-
-<audio id="click" src="https://assets.mixkit.co/sfx/preview/mixkit-mouse-click-close-1113.mp3"></audio
-
-                                                                                                        <div class="card">
-    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png">
-    <h3>50000 Takibçi</h3>
-    <p>170 AZN</p>
-    <button onclick="order(50000,170azn)">Sifariş</button>
-  </div>
-</div>
-
-  <audio id="click" src="https://assets.mixkit.co/sfx/preview/mixkit-mouse-click-close-1113.mp3"></audio
-
-                                                                                                          <div class="card">
-    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png">
-    <h3>100000 Takibçi</h3>
-    <p>340 AZN</p>
-    <button onclick="order(100000,340azn)">Sifariş</button>
-  </div>
-</div>
-
-  <audio id="click" src="https://assets.mixkit.co/sfx/preview/mixkit-mouse-click-close-1113.mp3"></audio
-                                                                                          
 <script src="script.js"></script>
 </body>
 </html>
