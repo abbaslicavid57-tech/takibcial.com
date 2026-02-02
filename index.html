@@ -1,236 +1,37 @@
 <!DOCTYPE html>
 <html lang="az">
 <head>
-<meta charset="UTF-8">
-<title>Takibcial • Premium SMM Panel</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- ICONS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<style>
-/* ================= RESET ================= */
-*{margin:0;padding:0;box-sizing:border-box}
-
-/* ================= BODY ================= */
-body{
-    font-family:'Segoe UI',sans-serif;
-    background:linear-gradient(135deg,#06162f,#020b1c);
-    color:#fff;
-}
-
-/* ================= HEADER ================= */
-header{
-    padding:22px;
-    text-align:center;
-    font-size:28px;
-    font-weight:700;
-    color:#4dd2ff;
-    letter-spacing:1px;
-}
-
-/* ================= NAV ================= */
-nav{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    padding-bottom:15px;
-}
-nav a{
-    color:#cfe9ff;
-    text-decoration:none;
-    font-size:15px;
-}
-nav a:hover{color:#fff}
-
-/* ================= SECTION TITLE ================= */
-.section-title{
-    text-align:center;
-    font-size:24px;
-    margin:30px 0 10px;
-    color:#4dd2ff;
-}
-
-/* ================= GRID ================= */
-.container{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-    gap:18px;
-    padding:20px;
-}
-
-/* ================= CARD ================= */
-.card{
-    background:rgba(255,255,255,0.07);
-    border-radius:20px;
-    padding:18px;
-    text-align:center;
-    backdrop-filter:blur(14px);
-    box-shadow:0 0 25px rgba(0,140,255,0.45);
-    transition:.25s;
-}
-.card:hover{
-    transform:translateY(-5px) scale(1.03);
-}
-
-/* ================= ICON ================= */
-.card i{
-    font-size:34px;
-    margin-bottom:10px;
-}
-.ig{color:#ff5ccd}
-.yt{color:#ff4d4d}
-.tg{color:#4dd2ff}
-.wa{color:#25d366}
-
-/* ================= TEXT ================= */
-.card h3{font-size:15px;margin-bottom:5px}
-.price{color:#00ffee;font-weight:600;margin:6px 0}
-
-/* ================= BUTTON ================= */
-.btn{
-    display:inline-block;
-    padding:10px 18px;
-    border-radius:30px;
-    background:linear-gradient(135deg,#00c6ff,#0072ff);
-    color:#fff;
-    text-decoration:none;
-    font-size:13px;
-    font-weight:600;
-    box-shadow:0 0 14px rgba(0,180,255,.8);
-}
-.btn:hover{opacity:.9}
-
-/* ================= FOOTER ================= */
-footer{
-    text-align:center;
-    padding:18px;
-    font-size:13px;
-    color:#aaa;
-}
-
-/* ================= MOBILE FIX ================= */
-@media(min-width:600px){
-    .container{
-        grid-template-columns:repeat(3,1fr);
-    }
-}
-</style>
+  <meta charset="UTF-8">
+  <title>SMM Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header>💎 Takibcial Premium SMM Panel</header>
+<header>
+  <div class="logo">SMM<span>Panel</span></div>
+</header>
 
-<nav>
-<a href="#">Instagram</a>
-<a href="#">YouTube</a>
-<a href="#">Telegram</a>
-<a href="#">WhatsApp</a>
-</nav>
+<h1>Instagram Paketləri</h1>
 
-<!-- ================= INSTAGRAM ================= -->
-<div class="section-title">
-<i class="fa-brands fa-instagram ig"></i> Instagram Paketləri
+<div class="packages">
+  <div class="card">
+    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png">
+    <h3>1000 Takibçi</h3>
+    <p>6 AZN</p>
+    <button onclick="order(1000,6)">Sifariş</button>
+  </div>
+
+  <div class="card">
+    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png">
+    <h3>2000 Takibçi</h3>
+    <p>12 AZN</p>
+    <button onclick="order(2000,12)">Sifariş</button>
+  </div>
 </div>
 
-<div class="container">
+<audio id="click" src="https://assets.mixkit.co/sfx/preview/mixkit-mouse-click-close-1113.mp3"></audio>
 
-<div class="card">
-<i class="fa-brands fa-instagram ig"></i>
-<h3>1000 Takibçi</h3>
-<div class="price">6 AZN</div>
-<a class="btn" href="https://wa.me/994709006777?text=Instagram+1000+Takibçi">Sifariş et</a>
-</div>
-
-<div class="card">
-<i class="fa-brands fa-instagram ig"></i>
-<h3>2000 Takibçi</h3>
-<div class="price">12 AZN</div>
-<a class="btn" href="https://wa.me/994709006777?text=Instagram+2000+Takibçi">Sifariş et</a>
-</div>
-
-<div class="card">
-<i class="fa-brands fa-instagram ig"></i>
-<h3>3000 Takibçi</h3>
-<div class="price">18 AZN</div>
-<a class="btn" href="https://wa.me/994709006777?text=Instagram+3000+Takibçi">Sifariş et</a>
-</div>
-
-<div class="card">
-<i class="fa-brands fa-instagram ig"></i>
-<h3>4000 Takibçi</h3>
-<div class="price">24 AZN</div>
-<a class="btn" href="https://wa.me/994709006777?text=Instagram+4000+Takibçi">Sifariş et</a>
-</div>
-
-<div class="card">
-<i class="fa-brands fa-instagram ig"></i>
-<h3>5000 Takibçi</h3>
-<div class="price">28 AZN</div>
-<a class="btn" href="https://wa.me/994709006777?text=Instagram+5000+Takibçi">Sifariş et</a>
-</div>
-
-<div class="card">
-<i class="fa-brands fa-instagram ig"></i>
-<h3>10.000 Takibçi</h3>
-<div class="price">55 AZN</div>
-<a class="btn" href="https://wa.me/994709006777?text=Instagram+10000+Takibçi">Sifariş et</a>
-</div>
-
-<div class="card">
-<i class="fa-brands fa-instagram ig"></i>
-<h3>15.000 Takibçi</h3>
-<div class="price">75 AZN</div>
-<a class="btn" href="https://wa.me/994709006777?text=Instagram+15000+Takibçi">Sifariş et</a>
-</div>
-
-<div class="card">
-<i class="fa-brands fa-instagram ig"></i>
-<h3>20.000 Takibçi</h3>
-<div class="price">90 AZN</div>
-<a class="btn" href="https://wa.me/994709006777?text=Instagram+20000+Takibçi">Sifariş et</a>
-</div>
-
-<div class="card">
-<i class="fa-brands fa-instagram ig"></i>
-<h3>50.000 Takibçi</h3>
-<div class="price">170 AZN</div>
-<a class="btn" href="https://wa.me/994709006777?text=Instagram+50000+Takibçi">Sifariş et</a>
-</div>
-
-<div class="card">
-<i class="fa-brands fa-instagram ig"></i>
-<h3>100.000 Takibçi</h3>
-<div class="price">340 AZN</div>
-<a class="btn" href="https://wa.me/994709006777?text=Instagram+100000+Takibçi">Sifariş et</a>
-</div>
-
-</div>
-
-<!-- ================= EMPTY SECTIONS ================= -->
-<div class="section-title"><i class="fa-brands fa-youtube yt"></i> YouTube (tezliklə)</div>
-<div class="container"><div class="card">Paketlər əlavə olunacaq</div></div>
-
-<div class="section-title"><i class="fa-brands fa-telegram tg"></i> Telegram (tezliklə)</div>
-<div class="container"><div class="card">Paketlər əlavə olunacaq</div></div>
-
-<div class="section-title"><i class="fa-brands fa-whatsapp wa"></i> WhatsApp (tezliklə)</div>
-<div class="container"><div class="card">Paketlər əlavə olunacaq</div></div>
-
-<footer>
-© 2026 Takibcial.com • Premium SMM Panel
-</footer>
-
-<!-- ================= CLICK SOUND ================= -->
-<audio id="clickSound" src="click.mp3"></audio>
-<script>
-document.addEventListener("click",()=>{
-  let s=document.getElementById("clickSound");
-  s.currentTime=0;
-  s.play();
-});
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
