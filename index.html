@@ -5,232 +5,177 @@
 <title>Takibcial • Premium SMM Panel</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- ICONS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-/* ================= RESET ================= */
+/* ================= RESET & BASE ================= */
 *{margin:0;padding:0;box-sizing:border-box}
-
-/* ================= BODY ================= */
 body{
     font-family:'Segoe UI',sans-serif;
     background:linear-gradient(135deg,#06162f,#020b1c);
     color:#fff;
+    line-height: 1.6;
 }
 
-/* ================= HEADER ================= */
+/* ================= HEADER & NAV ================= */
 header{
-    padding:22px;
+    padding:30px 20px;
     text-align:center;
-    font-size:28px;
+    font-size:32px;
     font-weight:700;
     color:#4dd2ff;
-    letter-spacing:1px;
+    text-transform: uppercase;
+    letter-spacing:2px;
 }
-
-/* ================= NAV ================= */
 nav{
     display:flex;
     justify-content:center;
-    gap:20px;
-    padding-bottom:15px;
+    flex-wrap: wrap;
+    gap:15px;
+    padding:10px;
+    position: sticky;
+    top: 0;
+    background: rgba(6, 22, 47, 0.9);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
 }
 nav a{
     color:#cfe9ff;
     text-decoration:none;
-    font-size:15px;
+    font-size:14px;
+    padding: 8px 15px;
+    border: 1px solid rgba(77, 210, 255, 0.3);
+    border-radius: 20px;
+    transition: 0.3s;
 }
-nav a:hover{color:#fff}
+nav a:hover{background:#4dd2ff; color:#020b1c}
 
 /* ================= SECTION TITLE ================= */
 .section-title{
     text-align:center;
-    font-size:24px;
-    margin:30px 0 10px;
-    color:#4dd2ff;
+    font-size:26px;
+    margin:50px 0 20px;
+    color:#fff;
+    border-bottom: 2px solid #4dd2ff;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 5px;
 }
 
 /* ================= GRID ================= */
 .container{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-    gap:18px;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
     padding:20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* ================= CARD ================= */
 .card{
-    background:rgba(255,255,255,0.07);
-    border-radius:20px;
-    padding:18px;
+    background:rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius:15px;
+    padding:20px;
     text-align:center;
-    backdrop-filter:blur(14px);
-    box-shadow:0 0 25px rgba(0,140,255,0.45);
-    transition:.25s;
+    transition:.3s;
 }
 .card:hover{
-    transform:translateY(-5px) scale(1.03);
+    transform:translateY(-8px);
+    background:rgba(255,255,255,0.1);
+    box-shadow:0 10px 30px rgba(0,140,255,0.3);
 }
 
-/* ================= ICON ================= */
-.card i{
-    font-size:34px;
-    margin-bottom:10px;
-}
+.card i{ font-size:30px; margin-bottom:12px; }
 .ig{color:#ff5ccd}
-.yt{color:#ff4d4d}
-.tg{color:#4dd2ff}
-.wa{color:#25d366}
+.tk{color:#00f2ea} /* TikTok rəngi */
 
-/* ================= TEXT ================= */
-.card h3{font-size:15px;margin-bottom:5px}
-.price{color:#00ffee;font-weight:600;margin:6px 0}
+.card h3{font-size:16px; margin-bottom:8px; color:#eee}
+.price{color:#00ffee; font-size:18px; font-weight:700; margin:10px 0}
 
 /* ================= BUTTON ================= */
 .btn{
-    display:inline-block;
-    padding:10px 18px;
-    border-radius:30px;
+    display:block;
+    padding:10px;
+    border-radius:8px;
     background:linear-gradient(135deg,#00c6ff,#0072ff);
     color:#fff;
     text-decoration:none;
     font-size:13px;
     font-weight:600;
-    box-shadow:0 0 14px rgba(0,180,255,.8);
 }
-.btn:hover{opacity:.9}
+.btn:hover{filter: brightness(1.2);}
 
-/* ================= FOOTER ================= */
-footer{
-    text-align:center;
-    padding:18px;
-    font-size:13px;
-    color:#aaa;
-}
+footer{text-align:center; padding:40px; color:#666; font-size:14px;}
 
-/* ================= MOBILE FIX ================= */
-@media(min-width:600px){
-    .container{
-        grid-template-columns:repeat(3,1fr);
-    }
-}
+@media(min-width:900px){ .container{ grid-template-columns:repeat(4,1fr); } }
 </style>
 </head>
-
 <body>
 
-<header>💎 Takibcial Premium SMM Panel</header>
+<header>💎 Takibcial</header>
 
 <nav>
-<a href="#">Instagram</a>
-<a href="#">YouTube</a>
-<a href="#">Telegram</a>
-<a href="#">WhatsApp</a>
+    <a href="#ig-takibci">Instagram Takibçi</a>
+    <a href="#ig-beyeni">Instagram Bəyəni</a>
+    <a href="#ig-baxis">Instagram Baxış</a>
+    <a href="#tk-takibci">TikTok Takibçi</a>
+    <a href="#tk-baxis">TikTok Baxış</a>
 </nav>
 
-<!-- ================= INSTAGRAM ================= -->
-<div class="section-title">
-<i class="fa-brands fa-instagram ig"></i> Instagram Paketləri
-</div>
-
+<div id="ig-takibci" class="section-title"><i class="fa-brands fa-instagram ig"></i> Instagram Takibçi</div>
 <div class="container">
-
-<div class="card">
-<i class="fa-brands fa-instagram ig"></i>
-<h3>1000 Takibçi</h3>
-<div class="price">6 AZN</div>
-<a class="btn" href="https://wa.me/994709006777?text=Instagram+1000+Takibçi">Sifariş et</a>
+    <div class="card"><i class="fa-brands fa-instagram ig"></i><h3>1000 Takibçi</h3><div class="price">6 AZN</div><a class="btn" href="https://wa.me/994709006777?text=IG-Takibci-1000">Sifariş et</a></div>
+    <div class="card"><i class="fa-brands fa-instagram ig"></i><h3>2000 Takibçi</h3><div class="price">12 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+    <div class="card"><i class="fa-brands fa-instagram ig"></i><h3>3000 Takibçi</h3><div class="price">18 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+    <div class="card"><i class="fa-brands fa-instagram ig"></i><h3>4000 Takibçi</h3><div class="price">24 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+    <div class="card"><i class="fa-brands fa-instagram ig"></i><h3>5000 Takibçi</h3><div class="price">28 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+    <div class="card"><i class="fa-brands fa-instagram ig"></i><h3>10.000 Takibçi</h3><div class="price">55 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+    <div class="card"><i class="fa-brands fa-instagram ig"></i><h3>20.000 Takibçi</h3><div class="price">90 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+    <div class="card"><i class="fa-brands fa-instagram ig"></i><h3>50.000 Takibçi</h3><div class="price">170 AZN</div><a class="btn" href="#">Sifariş et</a></div>
 </div>
 
-<div class="card">
-<i class="fa-brands fa-instagram ig"></i>
-<h3>2000 Takibçi</h3>
-<div class="price">12 AZN</div>
-<a class="btn" href="https://wa.me/994709006777?text=Instagram+2000+Takibçi">Sifariş et</a>
+<div id="ig-beyeni" class="section-title"><i class="fa-solid fa-heart ig"></i> Instagram Bəyəni</div>
+<div class="container">
+    <div class="card"><i class="fa-solid fa-heart ig"></i><h3>100 Bəyəni</h3><div class="price">0.50 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+    <div class="card"><i class="fa-solid fa-heart ig"></i><h3>500 Bəyəni</h3><div class="price">2 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+    <div class="card"><i class="fa-solid fa-heart ig"></i><h3>Paket 3</h3><div class="price">- AZN</div><a class="btn" href="#">Sifariş et</a></div>
+    <div class="card"><i class="fa-solid fa-heart ig"></i><h3>Paket 4</h3><div class="price">- AZN</div><a class="btn" href="#">Sifariş et</a></div>
+    <div class="card"><i class="fa-solid fa-heart ig"></i><h3>Paket 5</h3><div class="price">- AZN</div><a class="btn" href="#">Sifariş et</a></div>
+    <div class="card"><i class="fa-solid fa-heart ig"></i><h3>Paket 6</h3><div class="price">- AZN</div><a class="btn" href="#">Sifariş et</a></div>
+    <div class="card"><i class="fa-solid fa-heart ig"></i><h3>Paket 7</h3><div class="price">- AZN</div><a class="btn" href="#">Sifariş et</a></div>
+    <div class="card"><i class="fa-solid fa-heart ig"></i><h3>Paket 8</h3><div class="price">- AZN</div><a class="btn" href="#">Sifariş et</a></div>
 </div>
 
-<div class="card">
-<i class="fa-brands fa-instagram ig"></i>
-<h3>3000 Takibçi</h3>
-<div class="price">18 AZN</div>
-<a class="btn" href="https://wa.me/994709006777?text=Instagram+3000+Takibçi">Sifariş et</a>
+<div id="ig-baxis" class="section-title"><i class="fa-solid fa-eye ig"></i> Instagram Baxış / Kayd</div>
+<div class="container">
+    <div class="card"><i class="fa-solid fa-eye ig"></i><h3>1000 Baxış</h3><div class="price">1 AZN</div><a class="btn" href="#">Sifariş et</a></div>
+    <div class="card"><i class="fa-solid fa-eye ig"></i><h3>Paket 2</h3><div class="price">- AZN</div><a class="btn" href="#">Sifariş et</a></div>
+    <div class="card"><i class="fa-solid fa-eye ig"></i><h3>Paket 3</h3><div class="price">- AZN</div><a class="btn" href="#">Sifariş et</a></div>
+    <div class="card"><i class="fa-solid fa-eye ig"></i><h3>Paket 4</h3><div class="price">- AZN</div><a class="btn" href="#">Sifariş et</a></div>
+    <div class="card"><i class="fa-solid fa-eye ig"></i><h3>Paket 5</h3><div class="price">- AZN</div><a class="btn" href="#">Sifariş et</a></div>
+    <div class="card"><i class="fa-solid fa-eye ig"></i><h3>Paket 6</h3><div class="price">- AZN</div><a class="btn" href="#">Sifariş et</a></div>
+    <div class="card"><i class="fa-solid fa-eye ig"></i><h3>Paket 7</h3><div class="price">- AZN</div><a class="btn" href="#">Sifariş et</a></div>
+    <div class="card"><i class="fa-solid fa-eye ig"></i><h3>Paket 8</h3><div class="price">- AZN</div><a class="btn" href="#">Sifariş et</a></div>
 </div>
 
-<div class="card">
-<i class="fa-brands fa-instagram ig"></i>
-<h3>4000 Takibçi</h3>
-<div class="price">24 AZN</div>
-<a class="btn" href="https://wa.me/994709006777?text=Instagram+4000+Takibçi">Sifariş et</a>
+<div id="tk-takibci" class="section-title"><i class="fa-brands fa-tiktok tk"></i> TikTok Takibçi</div>
+<div class="container">
+    <div class="card"><i class="fa-brands fa-tiktok tk"></i><h3>1000 Takibçi</h3><div class="price">- AZN</div><a class="btn" href="#">Sifariş et</a></div>
+    <div class="card"><i class="fa-brands fa-tiktok tk"></i><h3>Paket 2</h3><div class="price">- AZN</div><a class="btn" href="#">Sifariş et</a></div>
+    <div class="card"><i class="fa-brands fa-tiktok tk"></i><h3>Paket 3</h3><div class="price">- AZN</div><a class="btn" href="#">Sifariş et</a></div>
+    <div class="card"><i class="fa-brands fa-tiktok tk"></i><h3>Paket 4</h3><div class="price">- AZN</div><a class="btn" href="#">Sifariş et</a></div>
+    <div class="card"><i class="fa-brands fa-tiktok tk"></i><h3>Paket 5</h3><div class="price">- AZN</div><a class="btn" href="#">Sifariş et</a></div>
+    <div class="card"><i class="fa-brands fa-tiktok tk"></i><h3>Paket 6</h3><div class="price">- AZN</div><a class="btn" href="#">Sifariş et</a></div>
+    <div class="card"><i class="fa-brands fa-tiktok tk"></i><h3>Paket 7</h3><div class="price">- AZN</div><a class="btn" href="#">Sifariş et</a></div>
+    <div class="card"><i class="fa-brands fa-tiktok tk"></i><h3>Paket 8</h3><div class="price">- AZN</div><a class="btn" href="#">Sifariş et</a></div>
 </div>
-
-<div class="card">
-<i class="fa-brands fa-instagram ig"></i>
-<h3>5000 Takibçi</h3>
-<div class="price">28 AZN</div>
-<a class="btn" href="https://wa.me/994709006777?text=Instagram+5000+Takibçi">Sifariş et</a>
-</div>
-
-<div class="card">
-<i class="fa-brands fa-instagram ig"></i>
-<h3>10.000 Takibçi</h3>
-<div class="price">55 AZN</div>
-<a class="btn" href="https://wa.me/994709006777?text=Instagram+10000+Takibçi">Sifariş et</a>
-</div>
-
-<div class="card">
-<i class="fa-brands fa-instagram ig"></i>
-<h3>15.000 Takibçi</h3>
-<div class="price">75 AZN</div>
-<a class="btn" href="https://wa.me/994709006777?text=Instagram+15000+Takibçi">Sifariş et</a>
-</div>
-
-<div class="card">
-<i class="fa-brands fa-instagram ig"></i>
-<h3>20.000 Takibçi</h3>
-<div class="price">90 AZN</div>
-<a class="btn" href="https://wa.me/994709006777?text=Instagram+20000+Takibçi">Sifariş et</a>
-</div>
-
-<div class="card">
-<i class="fa-brands fa-instagram ig"></i>
-<h3>50.000 Takibçi</h3>
-<div class="price">170 AZN</div>
-<a class="btn" href="https://wa.me/994709006777?text=Instagram+50000+Takibçi">Sifariş et</a>
-</div>
-
-<div class="card">
-<i class="fa-brands fa-instagram ig"></i>
-<h3>100.000 Takibçi</h3>
-<div class="price">340 AZN</div>
-<a class="btn" href="https://wa.me/994709006777?text=Instagram+100000+Takibçi">Sifariş et</a>
-</div>
-
-</div>
-
-<!-- ================= EMPTY SECTIONS ================= -->
-<div class="section-title"><i class="fa-brands fa-youtube yt"></i> YouTube (tezliklə)</div>
-<div class="container"><div class="card">Paketlər əlavə olunacaq</div></div>
-
-<div class="section-title"><i class="fa-brands fa-telegram tg"></i> Telegram (tezliklə)</div>
-<div class="container"><div class="card">Paketlər əlavə olunacaq</div></div>
-
-<div class="section-title"><i class="fa-brands fa-whatsapp wa"></i> WhatsApp (tezliklə)</div>
-<div class="container"><div class="card">Paketlər əlavə olunacaq</div></div>
 
 <footer>
-© 2026 Takibcial.com • Premium SMM Panel
+    © 2026 Takibcial.com • Bütün hüquqlar qorunur.
 </footer>
-
-<!-- ================= CLICK SOUND ================= -->
-<audio id="clickSound" src="click.mp3"></audio>
-<script>
-document.addEventListener("click",()=>{
-  let s=document.getElementById("clickSound");
-  s.currentTime=0;
-  s.play();
-});
-</script>
 
 </body>
 </html>
