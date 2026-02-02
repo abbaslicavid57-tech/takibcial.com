@@ -1,14 +1,19 @@
-const click=document.getElementById("click");
+const clickSound = document.getElementById("clickSound");
 
-document.addEventListener("click",()=>{
-  click.currentTime=0;
-  click.play();
+document.addEventListener("click", () => {
+  clickSound.currentTime = 0;
+  clickSound.play();
 });
 
-function order(qty,price){
-  const msg=`Instagram ${qty} Takibçi - ${price} AZN`;
-  window.open(
-    "https://wa.me/994709006777?text="+encodeURIComponent(msg),
-    "_blank"
-  );
+function showPlatform(id) {
+  document.querySelectorAll(".services").forEach(s => {
+    s.classList.remove("active");
+  });
+  document.getElementById(id).classList.add("active");
+}
+
+function order(text) {
+  const phone = "994709006777";
+  const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+  window.open(url, "_blank");
 }
