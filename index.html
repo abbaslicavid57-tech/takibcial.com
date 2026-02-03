@@ -1,180 +1,184 @@
 <!DOCTYPE html>
 <html lang="az">
 <head>
-<meta charset="UTF-8">
-<title>Takibcial • Premium SMM Panel Pakətləri</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <title>Takibcial • Premium SMM Panel Pakətləri</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<style>
-/* ================= RESET & BASE ================= */
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-    font-family:'Segoe UI',sans-serif;
-    background:linear-gradient(135deg,#06162f,#020b1c);
-    color:#fff;
-    line-height: 1.6;
-    min-height: 100vh;
-}
+    <style>
+        /* ================= RESET & BASE ================= */
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{
+            font-family:'Segoe UI',sans-serif;
+            background:linear-gradient(135deg,#06162f,#020b1c);
+            color:#fff;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
 
-/* ================= NEWS TICKER CSS ================= */
-.news-ticker {
-    background: #4dd2ff;
-    color: #020b1c;
-    overflow: hidden;
-    white-space: nowrap;
-    padding: 8px 0;
-    font-weight: 700;
-    font-size: 14px;
-    border-bottom: 2px solid #00ffee;
-}
-.ticker-wrap {
-    display: inline-block;
-    padding-left: 100%;
-    animation: ticker 25s linear infinite;
-}
-@keyframes ticker {
-    0% { transform: translate3d(0, 0, 0); }
-    100% { transform: translate3d(-100%, 0, 0); }
-}
-.ticker-move span {
-    display: inline-block;
-    padding-right: 50px;
-}
+        /* ================= NEWS TICKER CSS ================= */
+        .news-ticker {
+            background: #4dd2ff;
+            color: #020b1c;
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 8px 0;
+            font-weight: 700;
+            font-size: 14px;
+            border-bottom: 2px solid #00ffee;
+        }
+        .ticker-wrap {
+            display: inline-block;
+            padding-left: 100%;
+            animation: ticker 25s linear infinite;
+        }
+        @keyframes ticker {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-100%, 0, 0); }
+        }
+        .ticker-move span {
+            display: inline-block;
+            padding-right: 50px;
+        }
 
-/* ================= HEADER & NAV ================= */
-header{
-    padding:20px;
-    text-align:center;
-    font-size:28px;
-    font-weight:800;
-    color:#4dd2ff;
-    text-transform: uppercase;
-    letter-spacing:2px;
-}
-nav{
-    display:flex;
-    justify-content:center;
-    flex-wrap: wrap;
-    gap:8px;
-    padding:12px;
-    position: sticky;
-    top: 0;
-    background: rgba(6, 22, 47, 0.95);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-    border-bottom: 1px solid rgba(77, 210, 255, 0.2);
-}
-.tab-btn {
-    padding: 8px 16px;
-    border: 1px solid #4dd2ff;
-    background: transparent;
-    color: #4dd2ff;
-    border-radius: 20px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: 0.3s;
-    font-size: 13px;
-}
-.tab-btn.active {
-    background: #4dd2ff;
-    color: #020b1c;
-    box-shadow: 0 0 15px rgba(77, 210, 255, 0.5);
-}
+        /* ================= HEADER & NAV ================= */
+        header{
+            padding:20px;
+            text-align:center;
+            font-size:28px;
+            font-weight:800;
+            color:#4dd2ff;
+            text-transform: uppercase;
+            letter-spacing:2px;
+        }
+        nav{
+            display:flex;
+            justify-content:center;
+            flex-wrap: wrap;
+            gap:8px;
+            padding:12px;
+            position: sticky;
+            top: 0;
+            background: rgba(6, 22, 47, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(77, 210, 255, 0.2);
+        }
+        .tab-btn {
+            padding: 8px 16px;
+            border: 1px solid #4dd2ff;
+            background: transparent;
+            color: #4dd2ff;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+            font-size: 13px;
+        }
+        .tab-btn.active {
+            background: #4dd2ff;
+            color: #020b1c;
+            box-shadow: 0 0 15px rgba(77, 210, 255, 0.5);
+        }
 
-/* ================= NEON WHEEL ================= */
-#wheel-container {
-    text-align: center;
-    margin: 20px auto;
-    width: 280px;
-    padding: 15px;
-    background: rgba(255, 255, 255, 0.04);
-    border-radius: 20px;
-    border: 1px solid rgba(77, 210, 255, 0.2);
-}
-#wheel-box {
-    position: relative;
-    width: 210px;
-    height: 210px;
-    margin: 0 auto;
-    border-radius: 50%;
-    border: 3px solid #4dd2ff;
-    box-shadow: 0 0 15px #4dd2ff;
-}
-#wheel {
-    width: 100%; height: 100%;
-    border-radius: 50%;
-    transition: transform 4s cubic-bezier(.15,0,.15,1);
-    background: conic-gradient(#ff5ccd 0 60deg, #00c6ff 60 120deg, #25d366 120 180deg, #ff4d4d 180 240deg, #f1c40f 240 300deg, #9b59b6 300 360deg);
-}
-.wheel-text span {
-    position: absolute; width: 50%; top: 50%; left: 50%;
-    transform-origin: 0% 50%; text-align: right; padding-right: 15px;
-    font-weight: 800; font-size: 14px;
-}
-.wheel-text span:nth-child(1) { transform: translateY(-50%) rotate(30deg); }
-.wheel-text span:nth-child(2) { transform: translateY(-50%) rotate(90deg); }
-.wheel-text span:nth-child(3) { transform: translateY(-50%) rotate(150deg); }
-.wheel-text span:nth-child(4) { transform: translateY(-50%) rotate(210deg); }
-.wheel-text span:nth-child(5) { transform: translateY(-50%) rotate(270deg); }
-.wheel-text span:nth-child(6) { transform: translateY(-50%) rotate(330deg); }
+        /* ================= NEON WHEEL ================= */
+        #wheel-container {
+            text-align: center;
+            margin: 20px auto;
+            width: 280px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 20px;
+            border: 1px solid rgba(77, 210, 255, 0.2);
+        }
+        #wheel-box {
+            position: relative;
+            width: 210px;
+            height: 210px;
+            margin: 0 auto;
+            border-radius: 50%;
+            border: 3px solid #4dd2ff;
+            box-shadow: 0 0 15px #4dd2ff;
+        }
+        #wheel {
+            width: 100%; height: 100%;
+            border-radius: 50%;
+            transition: transform 4s cubic-bezier(.15,0,.15,1);
+            background: conic-gradient(#ff5ccd 0 60deg, #00c6ff 60 120deg, #25d366 120 180deg, #ff4d4d 180 240deg, #f1c40f 240 300deg, #9b59b6 300 360deg);
+        }
+        .wheel-text span {
+            position: absolute; width: 50%; top: 50%; left: 50%;
+            transform-origin: 0% 50%; text-align: right; padding-right: 15px;
+            font-weight: 800; font-size: 14px;
+        }
+        .wheel-text span:nth-child(1) { transform: translateY(-50%) rotate(30deg); }
+        .wheel-text span:nth-child(2) { transform: translateY(-50%) rotate(90deg); }
+        .wheel-text span:nth-child(3) { transform: translateY(-50%) rotate(150deg); }
+        .wheel-text span:nth-child(4) { transform: translateY(-50%) rotate(210deg); }
+        .wheel-text span:nth-child(5) { transform: translateY(-50%) rotate(270deg); }
+        .wheel-text span:nth-child(6) { transform: translateY(-50%) rotate(330deg); }
 
-.wheel-pointer {
-    position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
-    border-left: 12px solid transparent; border-right: 12px solid transparent; border-top: 20px solid #fff; z-index: 10;
-}
-#spin-btn { margin-top: 15px; padding: 10px 25px; background: #00ffee; border: none; border-radius: 20px; font-weight: 700; cursor: pointer; color: #020b1c; }
+        .wheel-pointer {
+            position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+            border-left: 12px solid transparent; border-right: 12px solid transparent; border-top: 20px solid #fff; z-index: 10;
+        }
+        #spin-btn { margin-top: 15px; padding: 10px 25px; background: #00ffee; border: none; border-radius: 20px; font-weight: 700; cursor: pointer; color: #020b1c; }
 
-/* ================= GRID & CARDS ================= */
-.platform-content { display: none; }
-.platform-content.active { display: block; animation: fadeIn 0.4s ease; }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        /* ================= GRID & CARDS ================= */
+        .platform-content { display: none; }
+        .platform-content.active { display: block; animation: fadeIn 0.4s ease; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-.section-title { text-align: center; margin: 30px 0 15px; color: #4dd2ff; font-size: 20px; text-transform: uppercase; }
-.container {
-    display: grid; grid-template-columns: repeat(2, 1fr);
-    gap: 12px; padding: 15px; max-width: 1200px; margin: auto;
-}
-.card {
-    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 14px; padding: 18px; text-align: center;
-}
-.card i {
-    font-size: 38px; margin-bottom: 10px; display: inline-block;
-    animation: float 3s ease-in-out infinite;
-}
-@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        .section-title { text-align: center; margin: 30px 0 15px; color: #4dd2ff; font-size: 20px; text-transform: uppercase; }
+        .container {
+            display: grid; grid-template-columns: repeat(2, 1fr);
+            gap: 12px; padding: 15px; max-width: 1200px; margin: auto;
+        }
+        .card {
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 14px; padding: 18px; text-align: center;
+        }
+        .card i {
+            font-size: 38px; margin-bottom: 10px; display: inline-block;
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
-.ig { color: #ff5ccd; } .tk { color: #fff; } .heart { color: #ff4d4d; } .eye { color: #00ffee; }
-.price { color: #00ffee; font-weight: 700; margin: 8px 0; font-size: 17px; }
-.btn {
-    display: block; padding: 10px; border-radius: 8px;
-    background: linear-gradient(135deg, #25d366, #128c7e);
-    color: #fff; text-decoration: none; font-weight: 700; font-size: 13px;
-}
+        .ig { color: #ff5ccd; } .tk { color: #fff; } .heart { color: #ff4d4d; } .eye { color: #00ffee; }
+        .price { color: #00ffee; font-weight: 700; margin: 8px 0; font-size: 17px; }
+        .btn {
+            display: block; padding: 10px; border-radius: 8px;
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            color: #fff; text-decoration: none; font-weight: 700; font-size: 13px;
+        }
 
-/* ================= LIVE TOAST STYLES ================= */
-#live-toast {
-    position: fixed; bottom: 20px; left: -300px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(15px);
-    border: 1px solid #4dd2ff;
-    padding: 12px 20px;
-    border-radius: 12px;
-    display: flex; align-items: center; gap: 10px;
-    transition: 0.5s ease-in-out;
-    z-index: 9999;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-}
-#live-toast.active { left: 20px; }
-#live-toast i { color: #25d366; font-size: 20px; }
-#toast-text { font-size: 13px; color: #fff; }
+        /* ================= LIVE TOAST STYLES ================= */
+        #live-toast {
+            position: fixed; bottom: 20px; left: -300px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 1px solid #4dd2ff;
+            padding: 12px 20px;
+            border-radius: 12px;
+            display: flex; align-items: center; gap: 10px;
+            transition: 0.5s ease-in-out;
+            z-index: 9999;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        #live-toast.active { left: 20px; }
+        #live-toast i { color: #25d366; font-size: 20px; }
+        #toast-text { font-size: 13px; color: #fff; }
 
-footer { text-align: center; padding: 30px; color: #777; font-size: 12px; }
-@media(min-width: 768px) { .container { grid-template-columns: repeat(4, 1fr); } }
-</style>
+        footer { text-align: center; padding: 30px; color: #777; font-size: 12px; }
+        @media(min-width: 768px) { .container { grid-template-columns: repeat(4, 1fr); } }
+    </style>
 </head>
 <body>
+
+<audio id="spinSound" src="https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3" preload="auto"></audio>
+<audio id="winSound" src="https://www.soundjay.com/misc/sounds/magic-chime-01.mp3" preload="auto"></audio>
+<audio id="notifySound" src="https://www.soundjay.com/buttons/sounds/button-20.mp3" preload="auto"></audio>
 
 <div class="news-ticker">
     <div class="ticker-wrap">
@@ -348,12 +352,24 @@ window.onload = function() {
 
 function spin(){
     if(localStorage.getItem('wheelUsed')) return;
+    
+    // Səsi başlat
+    const spinAudio = document.getElementById('spinSound');
+    const winAudio = document.getElementById('winSound');
+    
+    // Brauzer səsi bloklamasın deyə play() çağırırıq
+    spinAudio.play().catch(e => console.log("Səs üçün klik lazımdır"));
+
     const p=prizes[Math.floor(Math.random()*prizes.length)];
     wheel.style.transform=`rotate(${p.d}deg)`;
     btnSpin.disabled = true;
     btnSpin.innerText = "Fırlanır...";
     
     setTimeout(()=>{
+        spinAudio.pause(); // Fırlanma səsini dayandır
+        spinAudio.currentTime = 0;
+        winAudio.play();   // Qalibiyyət səsini çal
+        
         msg.innerText="Təbriklər! Qazandınız: "+p.t+" endirim";
         localStorage.setItem('wheelUsed',1);
         btnSpin.style.display = 'none';
@@ -368,6 +384,8 @@ const services = ["10000 Takibçi", "50.000 Baxış", "1.000 Bəyəni", "500.000
 function showNotify() {
     const toast = document.getElementById('live-toast');
     const text = document.getElementById('toast-text');
+    const notifyAudio = document.getElementById('notifySound');
+    
     if(!toast || !text) return;
 
     const name = names[Math.floor(Math.random() * names.length)];
@@ -375,6 +393,9 @@ function showNotify() {
 
     text.innerHTML = `<b>${name}</b> az öncə <b>${service}</b> sifarişi etdi!`;
     toast.classList.add('active');
+    
+    // Bildiriş səsini çal
+    notifyAudio.play().catch(error => console.log("Səs üçün istifadəçi etkileşimi lazımdır"));
 
     setTimeout(() => {
         toast.classList.remove('active');
