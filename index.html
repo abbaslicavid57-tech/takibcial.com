@@ -4,6 +4,11 @@
 <meta charset="UTF-8">
 <title>Takibcial • Premium SMM Panel Pakətləri</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
@@ -51,6 +56,10 @@ header{
     color:#4dd2ff;
     text-transform: uppercase;
     letter-spacing:2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 nav{
     display:flex;
@@ -161,13 +170,7 @@ nav{
     transition: all 0.3s ease;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
-
-/* Hover zamanı parıldama effekti */
-.btn:hover {
-    box-shadow: 0 0 20px #fffa00, 0 0 40px #fffa00;
-}
-
-/* Click zamanı hərəkət effekti */
+.btn:hover { box-shadow: 0 0 20px #fffa00, 0 0 40px #fffa00; }
 .btn:active {
     transform: scale(0.95) rotate(-2deg);
     box-shadow: 0 0 25px #ffd700, 0 0 50px #ffd700;
@@ -208,7 +211,10 @@ footer { text-align: center; padding: 30px; color: #777; font-size: 12px; }
     </div>
 </div>
 
-<header>💎 TAKİBCİAL-Sosial Media Paketləri</header>
+<header>
+    <img src="favicon.png" alt="Takibcial Logo" width="80" height="80">
+    <div>💎 TAKİBCİAL-Sosial Media Paketləri</div>
+</header>
 
 <nav>
     <button class="tab-btn active" onclick="showPlatform('instagram',this)">Instagram</button>
@@ -234,7 +240,6 @@ footer { text-align: center; padding: 30px; color: #777; font-size: 12px; }
 </div>
 
 <div id="instagram" class="platform-content active">
-    
     <div class="section-title">Instagram Takibçi-Qarantiyalı</div>
     <div class="container">
         <div class="card"><i class="fa-brands fa-instagram ig"></i><h3>1000 Takibçi</h3><div class="price">6 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=Instagram-1000-Takibci">SİFARİŞ ET</a></div>
@@ -307,7 +312,7 @@ footer { text-align: center; padding: 30px; color: #777; font-size: 12px; }
 <footer>©Copyright Sayt Cavid Abbaslı tərəfindən qorunur 2026 Takibcial.com</footer>
 
 <script>
-// ================= PLATFORM DEYISME =================
+// PLATFORM SWITCH
 function showPlatform(id,el){
     document.querySelectorAll('.platform-content').forEach(c=>c.classList.remove('active'));
     document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
@@ -315,16 +320,16 @@ function showPlatform(id,el){
     el.classList.add('active');
 }
 
-// ================= SIFARIS BUTTON CLICK SESI =================
+// SIFARIS BUTTON CLICK SESI
 const clickSound = document.getElementById('clickSound');
 document.querySelectorAll('.order-btn').forEach(button => {
     button.addEventListener('click', () => {
         clickSound.currentTime = 0;
-        clickSound.play().catch(e => console.log("Səs işləmədi, click.mp3 yoxdur?"));
+        clickSound.play().catch(e => console.log("Səs işləmədi"));
     });
 });
 
-// ================= ENDIRIM CARXI =================
+// ENDIRIM CARXI
 const wheel=document.getElementById('wheel');
 const msg=document.getElementById('wheel-msg');
 const btnSpin=document.getElementById('spin-btn');
@@ -349,7 +354,7 @@ function spin(){
     },4000);
 }
 
-// ================= CANLI BİLDİRİŞ SİSTEMİ =================
+// CANLI BİLDİRİŞ
 const names = ["Ayxan001", "H3seyn_official", "Nigar777", "Elvin044", "Leyla.elyva", "Murad khalilov", "Aysel.shukurova", "Kənan.mustafayev", "Fidan.abbasova", "Rəşad.bagiyev", "Zaurisayev_official", "mva.Günel"];
 const services = ["10000 Takibçi", "50.000 Baxış", "1.000 Bəyəni", "500.000 Baxış", "50.000 Baxış", "3.000 Takibçi"];
 
@@ -357,19 +362,13 @@ function showNotify() {
     const toast = document.getElementById('live-toast');
     const text = document.getElementById('toast-text');
     if(!toast || !text) return;
-
     const name = names[Math.floor(Math.random() * names.length)];
     const service = services[Math.floor(Math.random() * services.length)];
-
     text.innerHTML = `<b>${name}</b> az öncə <b>${service}</b> sifarişi etdi!`;
     toast.classList.add('active');
-
-    setTimeout(() => {
-        toast.classList.remove('active');
-    }, 4000);
+    setTimeout(() => { toast.classList.remove('active'); }, 4000);
 }
 
-// SAYT YÜKLƏNƏNDƏ
 window.addEventListener('load', () => {
     if(localStorage.getItem('wheelUsed')){
         msg.innerText = "Sizin endiriminiz aktivdir!";
