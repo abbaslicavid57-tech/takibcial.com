@@ -5,7 +5,7 @@
 <title>Takibcial • Premium SMM Panel Pakətləri</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="icon" type="image/png" href="logo.png">
+<link rel="icon" type="image/jpeg" href="logo.jpg">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -21,18 +21,14 @@ body{
 }
 
 /* ================= ADDED: LOGO STYLES ================= */
-.main-logo {
-    width: 100px; /* Logonun ölçüsü */
-    height: auto;
+.site-logo {
+    width: 100px; /* Loqonun ölçüsü */
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%; /* Şəkli yuvarlaq edir */
+    border: 2px solid #4dd2ff;
     margin-bottom: 10px;
-    filter: drop-shadow(0 0 10px rgba(77, 210, 255, 0.5));
-}
-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 30px 20px;
+    box-shadow: 0 0 15px rgba(77, 210, 255, 0.6);
 }
 
 /* ================= NEWS TICKER CSS ================= */
@@ -62,13 +58,16 @@ header {
 
 /* ================= HEADER & NAV ================= */
 header{
-    padding:20px;
+    padding:30px 20px;
     text-align:center;
     font-size:28px;
     font-weight:800;
     color:#4dd2ff;
     text-transform: uppercase;
     letter-spacing:2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 nav{
     display:flex;
@@ -165,28 +164,10 @@ nav{
 
 .ig { color: #ff5ccd; } .tk { color: #fff; } .heart { color: #ff4d4d; } .eye { color: #00ffee; }
 .price { color: #00ffee; font-weight: 700; margin: 8px 0; font-size: 17px; }
-
-/* ================= YENİ SİFARİŞ DÜYMƏSİ EFFEKTİ ================= */
 .btn {
-    display: block; 
-    padding: 12px; 
-    border-radius: 10px;
-    background: linear-gradient(90deg, #ff6a00, #ff9a00);
-    color: #fff; 
-    text-decoration: none; 
-    font-weight: 700; 
-    font-size: 13px;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-}
-
-.btn:hover {
-    box-shadow: 0 0 20px #fffa00, 0 0 40px #fffa00;
-}
-
-.btn:active {
-    transform: scale(0.95) rotate(-2deg);
-    box-shadow: 0 0 25px #ffd700, 0 0 50px #ffd700;
+    display: block; padding: 10px; border-radius: 8px;
+    background: linear-gradient(135deg, #25d366, #128c7e);
+    color: #fff; text-decoration: none; font-weight: 700; font-size: 13px;
 }
 
 /* ================= LIVE TOAST STYLES ================= */
@@ -212,10 +193,6 @@ footer { text-align: center; padding: 30px; color: #777; font-size: 12px; }
 </head>
 <body>
 
-<audio id="clickSound">
-    <source src="click.mp3" type="audio/mpeg">
-</audio>
-
 <div class="news-ticker">
     <div class="ticker-wrap">
         <div class="ticker-move">
@@ -225,7 +202,7 @@ footer { text-align: center; padding: 30px; color: #777; font-size: 12px; }
 </div>
 
 <header>
-    <img src="logo.png" alt="Takibcial Logo" class="main-logo">
+    <img src="logo.jpg" alt="Logo" class="site-logo">
     <div>💎 TAKİBCİAL-Sosial Media Paketləri</div>
 </header>
 
@@ -256,70 +233,110 @@ footer { text-align: center; padding: 30px; color: #777; font-size: 12px; }
     
     <div class="section-title">Instagram Takibçi-Qarantiyalı</div>
     <div class="container">
-        <div class="card"><i class="fa-brands fa-instagram ig"></i><h3>1000 Takibçi</h3><div class="price">6 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=Instagram-1000-Takibci">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-brands fa-instagram ig"></i><h3>2000 Takibçi</h3><div class="price">12 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=Instagram-2000-Takibci">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-brands fa-instagram ig"></i><h3>5000 Takibçi</h3><div class="price">28 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=Instagram-5000-Takibci">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-brands fa-instagram ig"></i><h3>7000 Takibçi</h3><div class="price">36 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=Instagram-7000-Takibci">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-brands fa-instagram ig"></i><h3>10.000 Takibçi</h3><div class="price">55 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=Instagram-10000-Takibci">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-brands fa-instagram ig"></i><h3>20.000 Takibçi</h3><div class="price">90 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=Instagram-20000-Takibci">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-brands fa-instagram ig"></i><h3>50.000 Takibçi</h3><div class="price">170 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=Instagram-50000-Takibci">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-brands fa-instagram ig"></i><h3>100.000 Takibçi</h3><div class="price">340 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=Instagram-100000-Takibci">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-brands fa-instagram ig"></i><h3>1000 Takibçi</h3><div class="price">6 AZN</div><a class="btn" href="https://wa.me/994709006777?text=Instagram-1000-Takibci">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-brands fa-instagram ig"></i><h3>2000 Takibçi</h3><div class="price">12 AZN</div><a class="btn" href="https://wa.me/994709006777?text=Instagram-2000-Takibci">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-brands fa-instagram ig"></i><h3>5000 Takibçi</h3><div class="price">28 AZN</div><a class="btn" href="https://wa.me/994709006777?text=Instagram-5000-Takibci">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-brands fa-instagram ig"></i><h3>7000 Takibçi</h3><div class="price">36 AZN</div><a class="btn" href="https://wa.me/994709006777?text=Instagram-7000-Takibci">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-brands fa-instagram ig"></i><h3>10.000 Takibçi</h3><div class="price">55 AZN</div><a class="btn" href="https://wa.me/994709006777?text=Instagram-10000-Takibci">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-brands fa-instagram ig"></i><h3>20.000 Takibçi</h3><div class="price">90 AZN</div><a class="btn" href="https://wa.me/994709006777?text=Instagram-20000-Takibci">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-brands fa-instagram ig"></i><h3>50.000 Takibçi</h3><div class="price">170 AZN</div><a class="btn" href="https://wa.me/994709006777?text=Instagram-50000-Takibci">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-brands fa-instagram ig"></i><h3>100.000 Takibçi</h3><div class="price">340 AZN</div><a class="btn" href="https://wa.me/994709006777?text=Instagram-100000-Takibci">SİFARİŞ ET</a></div>
     </div>
 
     <div class="section-title">Instagram Bəyəni-Qarantiyalı</div>
     <div class="container">
-        <div class="card"><i class="fa-solid fa-heart heart"></i><h3>500 Like</h3><div class="price">0.50 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=IG-500-Like">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-solid fa-heart heart"></i><h3>1000 Like</h3><div class="price">2 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=IG-1000-Like">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-solid fa-heart heart"></i><h3>2000 Like</h3><div class="price">3.5 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=IG-2000-Like">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-solid fa-heart heart"></i><h3>5000 Like</h3><div class="price">8 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=IG-5000-Like">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-solid fa-heart heart"></i><h3>10.000 Like</h3><div class="price">14 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=IG-10000-Like">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-solid fa-heart heart"></i><h3>20.000 Like</h3><div class="price">25 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=IG-20000-Like">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-solid fa-heart heart"></i><h3>50.000 Like</h3><div class="price">45 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=IG-50000-Like">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-solid fa-heart heart"></i><h3>100.000 Like</h3><div class="price">85 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=IG-100000-Like">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-heart heart"></i><h3>500 Like</h3><div class="price">0.50 AZN</div><a class="btn" href="https://wa.me/994709006777?text=IG-500-Like">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-heart heart"></i><h3>1000 Like</h3><div class="price">2 AZN</div><a class="btn" href="https://wa.me/994709006777?text=IG-1000-Like">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-heart heart"></i><h3>2000 Like</h3><div class="price">3.5 AZN</div><a class="btn" href="https://wa.me/994709006777?text=IG-2000-Like">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-heart heart"></i><h3>5000 Like</h3><div class="price">8 AZN</div><a class="btn" href="https://wa.me/994709006777?text=IG-5000-Like">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-heart heart"></i><h3>10.000 Like</h3><div class="price">14 AZN</div><a class="btn" href="https://wa.me/994709006777?text=IG-10000-Like">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-heart heart"></i><h3>20.000 Like</h3><div class="price">25 AZN</div><a class="btn" href="https://wa.me/994709006777?text=IG-20000-Like">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-heart heart"></i><h3>50.000 Like</h3><div class="price">45 AZN</div><a class="btn" href="https://wa.me/994709006777?text=IG-50000-Like">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-heart heart"></i><h3>100.000 Like</h3><div class="price">85 AZN</div><a class="btn" href="https://wa.me/994709006777?text=IG-100000-Like">SİFARİŞ ET</a></div>
     </div>
 
     <div class="section-title">Instagram Baxış</div>
     <div class="container">
-        <div class="card"><i class="fa-solid fa-eye eye"></i><h3>1.000 Baxış</h3><div class="price">0.99 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=IG-1000-Baxish">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-solid fa-eye eye"></i><h3>2.000 Baxış</h3><div class="price">1.99 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=IG-2000-Baxish">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-solid fa-eye eye"></i><h3>5.000 Baxış</h3><div class="price">2.99 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=IG-5000-Baxish">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-solid fa-eye eye"></i><h3>10.000 Baxış</h3><div class="price">3.99 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=IG-10000-Baxish">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-solid fa-eye eye"></i><h3>50.000 Baxış</h3><div class="price">5.99 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=IG-50000-Baxish">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-solid fa-eye eye"></i><h3>100.000 Baxış</h3><div class="price">11.99 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=IG-100000-Baxish">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-solid fa-eye eye"></i><h3>500.000 Baxış</h3><div class="price">16.99 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=IG-500000-Baxish">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-solid fa-eye eye"></i><h3>1.000.000 Baxış</h3><div class="price">27.99 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=IG-1M-Baxish">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-eye eye"></i><h3>1.000 Baxış</h3><div class="price">0.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=IG-1000-Baxish">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-eye eye"></i><h3>2.000 Baxış</h3><div class="price">1.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=IG-2000-Baxish">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-eye eye"></i><h3>5.000 Baxış</h3><div class="price">2.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=IG-5000-Baxish">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-eye eye"></i><h3>10.000 Baxış</h3><div class="price">3.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=IG-10000-Baxish">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-eye eye"></i><h3>50.000 Baxış</h3><div class="price">5.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=IG-50000-Baxish">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-eye eye"></i><h3>100.000 Baxış</h3><div class="price">11.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=IG-100000-Baxish">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-eye eye"></i><h3>500.000 Baxış</h3><div class="price">16.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=IG-500000-Baxish">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-eye eye"></i><h3>1.000.000 Baxış</h3><div class="price">27.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=IG-1M-Baxish">SİFARİŞ ET</a></div>
     </div>
 </div>
 
 <div id="tiktok" class="platform-content">
     <div class="section-title">TikTok Takibçi</div>
     <div class="container">
-        <div class="card"><i class="fa-brands fa-tiktok tk"></i><h3>1000 Takibçi</h3><div class="price">9 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=TT-1000-Takibci">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-brands fa-tiktok tk"></i><h3>3000 Takibçi</h3><div class="price">23 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=TT-3000-Takibci">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-brands fa-tiktok tk"></i><h3>5000 Takibçi</h3><div class="price">42 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=TT-5000-Takibci">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-brands fa-tiktok tk"></i><h3>10.000 Takibçi</h3><div class="price">65 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=TT-10000-Takibci">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-brands fa-tiktok tk"></i><h3>50.000 Takibçi</h3><div class="price">300 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=TT-50000-Takibci">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-brands fa-tiktok tk"></i><h3>1000 Takibçi</h3><div class="price">9 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-1000-Takibci">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-brands fa-tiktok tk"></i><h3>3000 Takibçi</h3><div class="price">23 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-3000-Takibci">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-brands fa-tiktok tk"></i><h3>5000 Takibçi</h3><div class="price">42 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-5000-Takibci">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-brands fa-tiktok tk"></i><h3>10.000 Takibçi</h3><div class="price">65 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-10000-Takibci">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-brands fa-tiktok tk"></i><h3>50.000 Takibçi</h3><div class="price">300 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-50000-Takibci">SİFARİŞ ET</a></div>
     </div>
 
     <div class="section-title">TikTok Bəyəni</div>
     <div class="container">
-        <div class="card"><i class="fa-solid fa-heart heart"></i><h3>500 Like</h3><div class="price">0.99 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=TT-500-Like">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-solid fa-heart heart"></i><h3>1000 Like</h3><div class="price">1.99 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=TT-1000-Like">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-solid fa-heart heart"></i><h3>5000 Like</h3><div class="price">8.99 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=TT-5000-Like">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-solid fa-heart heart"></i><h3>10.000 Like</h3><div class="price">14.99 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=TT-10000-Like">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-solid fa-heart heart"></i><h3>50.000 Like</h3><div class="price">50.99 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=TT-50000-Like">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-heart heart"></i><h3>500 Like</h3><div class="price">0.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-500-Like">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-heart heart"></i><h3>1000 Like</h3><div class="price">1.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-1000-Like">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-heart heart"></i><h3>5000 Like</h3><div class="price">8.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-5000-Like">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-heart heart"></i><h3>10.000 Like</h3><div class="price">14.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-10000-Like">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-heart heart"></i><h3>50.000 Like</h3><div class="price">50.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-50000-Like">SİFARİŞ ET</a></div>
     </div>
 
     <div class="section-title">TikTok Baxış</div>
     <div class="container">
-        <div class="card"><i class="fa-solid fa-play tk"></i><h3>1.000 Baxış</h3><div class="price">0.99 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=TT-1000-Baxish">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-solid fa-play tk"></i><h3>3.000 Baxış</h3><div class="price">2.99 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=TT-3000-Baxish">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-solid fa-play tk"></i><h3>5.000 Baxış</h3><div class="price">3.99 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=TT-5000-Baxish">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-solid fa-play tk"></i><h3>10.000 Baxış</h3><div class="price">5.99 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=TT-10000-Baxish">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-solid fa-play tk"></i><h3>20.000 Baxış</h3><div class="price">7.99 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=TT-20000-Baxish">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-solid fa-play tk"></i><h3>50.000 Baxış</h3><div class="price">9.99 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=TT-50000-Baxish">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-solid fa-play tk"></i><h3>100.000 Baxış</h3><div class="price">15.99 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=TT-100000-Baxish">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-solid fa-play tk"></i><h3>500.000 Baxış</h3><div class="price">34.99 AZN</div><a class="btn order-btn" href="https://wa.me/994709006777?text=TT-500000-Baxish">SİFARİŞ ET</a></div>
+        <div class="card">
+            <i class="fa-solid fa-play tk"></i>
+            <h3>1.000 Baxış</h3>
+            <div class="price">0.99 AZN</div>
+            <a class="btn" href="https://wa.me/994709006777?text=TT-1000-Baxish">SİFARİŞ ET</a>
+        </div>
+        <div class="card">
+            <i class="fa-solid fa-play tk"></i>
+            <h3>3.000 Baxış</h3>
+            <div class="price">2.99 AZN</div>
+            <a class="btn" href="https://wa.me/994709006777?text=TT-3000-Baxish">SİFARİŞ ET</a>
+        </div>
+        <div class="card">
+            <i class="fa-solid fa-play tk"></i>
+            <h3>5.000 Baxış</h3>
+            <div class="price">3.99 AZN</div>
+            <a class="btn" href="https://wa.me/994709006777?text=TT-5000-Baxish">SİFARİŞ ET</a>
+        </div>
+        <div class="card">
+            <i class="fa-solid fa-play tk"></i>
+            <h3>10.000 Baxış</h3>
+            <div class="price">5.99 AZN</div>
+            <a class="btn" href="https://wa.me/994709006777?text=TT-10000-Baxish">SİFARİŞ ET</a>
+        </div>
+        <div class="card">
+            <i class="fa-solid fa-play tk"></i>
+            <h3>20.000 Baxış</h3>
+            <div class="price">7.99 AZN</div>
+            <a class="btn" href="https://wa.me/994709006777?text=TT-20000-Baxish">SİFARİŞ ET</a>
+        </div>
+        <div class="card">
+            <i class="fa-solid fa-play tk"></i>
+            <h3>50.000 Baxış</h3>
+            <div class="price">9.99 AZN</div>
+            <a class="btn" href="https://wa.me/994709006777?text=TT-50000-Baxish">SİFARİŞ ET</a>
+        </div>
+        <div class="card">
+            <i class="fa-solid fa-play tk"></i>
+            <h3>100.000 Baxış</h3>
+            <div class="price">15.99 AZN</div>
+            <a class="btn" href="https://wa.me/994709006777?text=TT-100000-Baxish">SİFARİŞ ET</a>
+        </div>
+        <div class="card">
+            <i class="fa-solid fa-play tk"></i>
+            <h3>500.000 Baxış</h3>
+            <div class="price">34.99 AZN</div>
+            <a class="btn" href="https://wa.me/994709006777?text=TT-500000-Baxish">SİFARİŞ ET</a>
+        </div>
     </div>
 </div>
 
@@ -333,14 +350,6 @@ function showPlatform(id,el){
     el.classList.add('active');
 }
 
-const clickSound = document.getElementById('clickSound');
-document.querySelectorAll('.order-btn').forEach(button => {
-    button.addEventListener('click', () => {
-        clickSound.currentTime = 0;
-        clickSound.play().catch(e => console.log("Səs işləmədi, click.mp3 yoxdur?"));
-    });
-});
-
 const wheel=document.getElementById('wheel');
 const msg=document.getElementById('wheel-msg');
 const btnSpin=document.getElementById('spin-btn');
@@ -349,6 +358,13 @@ const prizes=[
     {t:"3%",d:1830},{t:"5%",d:1890},{t:"10%",d:1950},
     {t:"7%",d:2010},{t:"20%",d:2070},{t:"15%",d:2130}
 ];
+
+window.onload = function() {
+    if(localStorage.getItem('wheelUsed')){
+        msg.innerText = "Sizin endiriminiz aktivdir!";
+        btnSpin.style.display = 'none';
+    }
+}
 
 function spin(){
     if(localStorage.getItem('wheelUsed')) return;
@@ -385,10 +401,6 @@ function showNotify() {
 }
 
 window.addEventListener('load', () => {
-    if(localStorage.getItem('wheelUsed')){
-        msg.innerText = "Sizin endiriminiz aktivdir!";
-        btnSpin.style.display = 'none';
-    }
     setTimeout(showNotify, 2000);
     setInterval(showNotify, 8000);
 });
