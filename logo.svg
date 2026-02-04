@@ -1,0 +1,27 @@
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4da3ff"/>
+      <stop offset="100%" stop-color="#0b5ed7"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Dairə fon -->
+  <circle cx="128" cy="128" r="120" fill="#0a1a33"/>
+
+  <!-- Roket gövdəsi -->
+  <ellipse cx="128" cy="110" rx="38" ry="70" fill="url(#g)"/>
+
+  <!-- Roket burun -->
+  <path d="M90 60 Q128 20 166 60 Z" fill="#4da3ff"/>
+
+  <!-- Pəncərə -->
+  <circle cx="128" cy="95" r="10" fill="#e6f2ff"/>
+
+  <!-- Qanadlar -->
+  <path d="M90 140 L55 175 L95 165 Z" fill="#2b7cff"/>
+  <path d="M166 140 L201 175 L161 165 Z" fill="#2b7cff"/>
+
+  <!-- Alov -->
+  <path d="M128 185 Q110 220 128 240 Q146 220 128 185 Z" fill="#ff7a18"/>
+</svg>
