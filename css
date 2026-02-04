@@ -1,0 +1,8 @@
+.site-logo {
+    width: 100px; 
+    height: 100px;
+    object-fit: cover; /* Raket şəklinin əzilməməsi üçün vacibdir */
+    border-radius: 50%; /* Şəkli dairəvi edir */
+    border: 3px solid #4dd2ff;
+    box-shadow: 0 0 20px rgba(77, 210, 255, 0.5);
+}
