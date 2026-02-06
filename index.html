@@ -1,6 +1,5 @@
 
 
-
 <!DOCTYPE html>
 <html lang="az">
 <head>
@@ -10,44 +9,39 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-/* ================= PRIME PREMIUM DESIGN BY GEMINI ================= */
+/* ================= PRIME & PREMIUM DESIGN ================= */
 :root {
-    --primary-blue: #00d2ff;
-    --deep-bg: #030812;
-    --card-bg: rgba(255, 255, 255, 0.03);
-    --glass-border: rgba(255, 255, 255, 0.08);
-    --insta: #f09433;
-    --tiktok-neon: #00f2ea;
-    --yt-red: #ff0000;
-    --tg-blue: #0088cc;
+    --accent: #4dd2ff;
+    --bg-dark: #030a16;
+    --card-glass: rgba(255, 255, 255, 0.03);
+    --border-glass: rgba(77, 210, 255, 0.15);
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
 body{
-    font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background: radial-gradient(circle at top right, #0a1931, #030812);
+    font-family:'Segoe UI', Roboto, sans-serif;
+    background: radial-gradient(circle at top, #081b33, #020b1c);
     color:#fff;
     line-height: 1.6;
     min-height: 100vh;
-    overflow-x: hidden;
 }
 
 /* ================= NEWS TICKER ================= */
 .news-ticker {
-    background: linear-gradient(90deg, #00d2ff, #3a7bd5);
-    color: #030812;
+    background: var(--accent);
+    color: #020b1c;
     overflow: hidden;
     white-space: nowrap;
     padding: 10px 0;
     font-weight: 800;
     font-size: 13px;
-    letter-spacing: 0.5px;
-    box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(77, 210, 255, 0.3);
 }
 .ticker-wrap {
     display: inline-block;
     padding-left: 100%;
-    animation: ticker 30s linear infinite;
+    animation: ticker 25s linear infinite;
 }
 @keyframes ticker {
     0% { transform: translate3d(0, 0, 0); }
@@ -56,17 +50,15 @@ body{
 
 /* ================= HEADER & NAV ================= */
 header{
-    padding:40px 20px 20px;
+    padding:35px 20px;
     text-align:center;
-    font-size:32px;
+    font-size:30px;
     font-weight:900;
-    color:#fff;
+    color: #fff;
     text-transform: uppercase;
-    letter-spacing:3px;
-    text-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
+    letter-spacing:4px;
+    text-shadow: 0 0 15px rgba(77, 210, 255, 0.5);
 }
-header b { color: var(--primary-blue); }
-
 nav{
     display:flex;
     justify-content:center;
@@ -75,134 +67,132 @@ nav{
     padding:15px;
     position: sticky;
     top: 0;
-    background: rgba(3, 8, 18, 0.85);
-    backdrop-filter: blur(20px);
+    background: rgba(6, 22, 47, 0.85);
+    backdrop-filter: blur(15px);
     z-index: 1000;
-    border-bottom: 1px solid var(--glass-border);
+    border-bottom: 1px solid var(--border-glass);
 }
 .tab-btn {
     padding: 10px 20px;
-    border: 1px solid var(--glass-border);
-    background: rgba(255, 255, 255, 0.05);
-    color: #fff;
+    border: 1px solid var(--accent);
+    background: transparent;
+    color: var(--accent);
     border-radius: 12px;
     cursor: pointer;
-    font-weight: 600;
-    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    font-size: 14px;
+    font-weight: 700;
+    transition: 0.4s;
+    font-size: 13px;
+    text-transform: uppercase;
 }
 .tab-btn.active {
-    background: var(--primary-blue);
-    color: #030812;
-    border-color: var(--primary-blue);
-    box-shadow: 0 0 25px rgba(0, 210, 255, 0.4);
+    background: var(--accent);
+    color: #020b1c;
+    box-shadow: 0 0 20px rgba(77, 210, 255, 0.4);
     transform: translateY(-2px);
 }
 
-/* ================= NEON WHEEL ================= */
+/* ================= WHEEL ================= */
 #wheel-container {
-    text-align: center; margin: 30px auto; width: 300px; padding: 25px;
-    background: var(--card-bg); border-radius: 30px;
-    border: 1px solid var(--glass-border);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    text-align: center;
+    margin: 30px auto;
+    width: 300px;
+    padding: 20px;
+    background: var(--card-glass);
+    border-radius: 25px;
+    border: 1px solid var(--border-glass);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 #wheel-box {
-    position: relative; width: 220px; height: 220px; margin: 0 auto;
-    border-radius: 50%; border: 5px solid #1a1a2e;
-    box-shadow: 0 0 30px rgba(0, 210, 255, 0.2);
+    position: relative;
+    width: 220px;
+    height: 220px;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 4px solid var(--accent);
+    box-shadow: 0 0 20px rgba(77, 210, 255, 0.3);
 }
 #wheel {
-    width: 100%; height: 100%; border-radius: 50%;
+    width: 100%; height: 100%;
+    border-radius: 50%;
     transition: transform 4s cubic-bezier(.15,0,.15,1);
     background: conic-gradient(#ff5ccd 0 60deg, #00c6ff 60 120deg, #25d366 120 180deg, #ff4d4d 180 240deg, #f1c40f 240 300deg, #9b59b6 300 360deg);
 }
 #spin-btn { 
-    margin-top: 20px; padding: 12px 30px; 
-    background: linear-gradient(135deg, #00d2ff, #3a7bd5); 
-    border: none; border-radius: 15px; font-weight: 800; cursor: pointer; color: #fff;
-    box-shadow: 0 5px 15px rgba(0, 210, 255, 0.3);
+    margin-top: 20px; 
+    padding: 12px 30px; 
+    background: var(--accent); 
+    border: none; 
+    border-radius: 15px; 
+    font-weight: 800; 
+    cursor: pointer; 
+    color: #020b1c;
+    transition: 0.3s;
 }
+#spin-btn:hover { transform: scale(1.05); filter: brightness(1.1); }
 
 /* ================= GRID & CARDS ================= */
-.section-title { 
-    text-align: center; margin: 50px 0 25px; 
-    color: #fff; font-size: 26px; font-weight: 800;
-    position: relative;
-}
-.section-title::after {
-    content: ''; display: block; width: 60px; height: 4px; 
-    background: var(--primary-blue); margin: 10px auto; border-radius: 2px;
-}
+.platform-content { display: none; }
+.platform-content.active { display: block; animation: fadeIn 0.5s ease forwards; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
+.section-title { 
+    text-align: center; 
+    margin: 50px 0 20px; 
+    color: var(--accent); 
+    font-size: 24px; 
+    font-weight: 800; 
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 .container {
     display: grid; grid-template-columns: repeat(2, 1fr);
-    gap: 20px; padding: 20px; max-width: 1200px; margin: auto;
+    gap: 15px; padding: 20px; max-width: 1200px; margin: auto;
 }
 .card {
-    background: var(--card-bg); border: 1px solid var(--glass-border);
-    border-radius: 24px; padding: 30px 20px; text-align: center;
-    backdrop-filter: blur(10px);
-    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: var(--card-glass); 
+    border: 1px solid var(--border-glass);
+    border-radius: 20px; 
+    padding: 25px 15px; 
+    text-align: center;
+    backdrop-filter: blur(5px);
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .card:hover {
-    transform: translateY(-12px);
-    background: rgba(255, 255, 255, 0.06);
-    border-color: var(--primary-blue);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 0 20px rgba(0, 210, 255, 0.1);
+    transform: translateY(-8px);
+    border-color: var(--accent);
+    background: rgba(255,255,255,0.06);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
 }
-
 .card i {
-    font-size: 48px; margin-bottom: 15px; display: inline-block;
+    font-size: 45px; margin-bottom: 15px; display: inline-block;
 }
+.ig { color: #ff5ccd; } .tk { color: #fff; } .heart { color: #ff4d4d; } .eye { color: var(--accent); } .yt-c { color: #ff0000; } .tg-c { color: #0088cc; }
 
-/* Icon Glows */
-.ig { color: #f09433; filter: drop-shadow(0 0 10px rgba(240, 148, 51, 0.5)); }
-.tk { color: #fff; filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5)); }
-.yt { color: #ff0000; filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.5)); }
-.tg { color: #0088cc; filter: drop-shadow(0 0 10px rgba(0, 136, 204, 0.5)); }
-.heart { color: #ff4d4d; filter: drop-shadow(0 0 10px rgba(255, 77, 77, 0.5)); }
-.eye { color: var(--primary-blue); filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.5)); }
-
-.price { 
-    color: #2ecc71; font-weight: 800; margin: 15px 0; font-size: 22px; 
-    text-shadow: 0 0 10px rgba(46, 204, 113, 0.2);
-}
-
+.price { color: #2ecc71; font-weight: 800; margin: 10px 0; font-size: 20px; }
 .btn {
-    display: block; padding: 14px; border-radius: 14px;
+    display: block; padding: 12px; border-radius: 12px;
     background: linear-gradient(135deg, #25d366, #128c7e);
-    color: #fff; text-decoration: none; font-weight: 800; font-size: 14px;
-    text-transform: uppercase; letter-spacing: 1px;
+    color: #fff; text-decoration: none; font-weight: 800; font-size: 13px;
+    text-transform: uppercase;
     transition: 0.3s;
-    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.2);
 }
-.btn:hover {
-    transform: scale(1.05);
-    filter: brightness(1.1);
-    box-shadow: 0 12px 25px rgba(37, 211, 102, 0.4);
-}
+.btn:hover { filter: brightness(1.1); transform: scale(1.02); }
 
 /* ================= LIVE TOAST ================= */
 #live-toast {
     position: fixed; bottom: 30px; left: -350px;
     background: rgba(10, 25, 49, 0.9);
     backdrop-filter: blur(15px);
-    border: 1px solid var(--primary-blue);
-    padding: 18px 25px; border-radius: 18px;
-    display: flex; align-items: center; gap: 15px;
-    transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    border: 1px solid var(--accent);
+    padding: 15px 25px;
+    border-radius: 15px;
+    display: flex; align-items: center; gap: 12px;
+    transition: 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     z-index: 9999;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
 }
 #live-toast.active { left: 25px; }
-#toast-text b { color: var(--primary-blue); }
 
-footer { 
-    text-align: center; padding: 60px 20px; color: #556070; 
-    font-size: 13px; border-top: 1px solid var(--glass-border);
-    margin-top: 50px;
-}
-
+footer { text-align: center; padding: 50px; color: #556070; font-size: 13px; border-top: 1px solid var(--border-glass); margin-top: 40px; }
 @media(min-width: 768px) { .container { grid-template-columns: repeat(4, 1fr); } }
 </style>
 </head>
@@ -210,21 +200,21 @@ footer {
 
 <div class="news-ticker">
     <div class="ticker-wrap">
-        <span>💎 PREMİUM SMM XİDMƏTLƏRİ — %100 REAL VƏ QARANTİYALI PAKETLƏR — 7/24 DƏSTƏK — BU GÜNƏ ÖZƏL ENDİRİMLƏRİ QAÇIRMAYIN! 💎</span>
+        <span>🔥 100% Peşəkar xidmətlər — Rəqiblərinizi geridə qoyun — Etibarlı və keyfiyyətli REAL paketlər ilə 🔥</span>
     </div>
 </div>
 
-<header>TAKİBCİ<b>AL</b></header>
+<header>💎 TAKİBCİAL-Sosial Media</header>
 
 <nav>
-    <button class="tab-btn active" onclick="showPlatform('instagram',this)"><i class="fa-brands fa-instagram"></i> Instagram</button>
-    <button class="tab-btn" onclick="showPlatform('tiktok',this)"><i class="fa-brands fa-tiktok"></i> TikTok</button>
-    <button class="tab-btn" onclick="showPlatform('youtube',this)"><i class="fa-brands fa-youtube"></i> YouTube</button>
-    <button class="tab-btn" onclick="showPlatform('telegram',this)"><i class="fa-brands fa-telegram"></i> Telegram</button>
+    <button class="tab-btn active" onclick="showPlatform('instagram',this)">Instagram</button>
+    <button class="tab-btn" onclick="showPlatform('tiktok',this)">TikTok</button>
+    <button class="tab-btn" onclick="showPlatform('youtube',this)">YouTube</button>
+    <button class="tab-btn" onclick="showPlatform('telegram',this)">Telegram</button>
 </nav>
 
 <div id="live-toast">
-    <i class="fa-solid fa-circle-check" style="color: #2ecc71; font-size: 24px;"></i>
+    <i class="fa-solid fa-circle-check" style="color: #2ecc71; font-size: 22px;"></i>
     <div id="toast-text"></div>
 </div>
 
@@ -232,8 +222,8 @@ footer {
     <div id="wheel-box">
         <div id="wheel"></div>
     </div>
-    <button id="spin-btn" onclick="spin()">Şansını Yoxla</button>
-    <p id="wheel-msg" style="margin-top:10px; font-size:12px; color:#556070;">Hər kəs üçün 1 şans</p>
+    <button id="spin-btn" onclick="spin()">Hədiyyə Qazan</button>
+    <p id="wheel-msg" style="font-size: 11px; margin-top: 10px; color: #777;">Hər kəs 1 dəfə fırlada bilər</p>
 </div>
 
 <div id="instagram" class="platform-content active">
@@ -274,7 +264,7 @@ footer {
     </div>
 </div>
 
-<div id="tiktok" class="platform-content" style="display:none;">
+<div id="tiktok" class="platform-content">
     <div class="section-title">TikTok Takibçi</div>
     <div class="container">
         <div class="card"><i class="fa-brands fa-tiktok tk"></i><h3>1000 Takibçi</h3><div class="price">9 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-1000-Takibci">SİFARİŞ ET</a></div>
@@ -283,46 +273,72 @@ footer {
         <div class="card"><i class="fa-brands fa-tiktok tk"></i><h3>10.000 Takibçi</h3><div class="price">65 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-10000-Takibci">SİFARİŞ ET</a></div>
         <div class="card"><i class="fa-brands fa-tiktok tk"></i><h3>50.000 Takibçi</h3><div class="price">300 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-50000-Takibci">SİFARİŞ ET</a></div>
     </div>
+
     <div class="section-title">TikTok Bəyəni</div>
     <div class="container">
+        <div class="card"><i class="fa-solid fa-heart heart"></i><h3>500 Like</h3><div class="price">0.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-500-Like">SİFARİŞ ET</a></div>
         <div class="card"><i class="fa-solid fa-heart heart"></i><h3>1000 Like</h3><div class="price">1.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-1000-Like">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-heart heart"></i><h3>5000 Like</h3><div class="price">8.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-5000-Like">SİFARİŞ ET</a></div>
         <div class="card"><i class="fa-solid fa-heart heart"></i><h3>10.000 Like</h3><div class="price">14.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-10000-Like">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-heart heart"></i><h3>50.000 Like</h3><div class="price">50.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-50000-Like">SİFARİŞ ET</a></div>
     </div>
+
     <div class="section-title">TikTok Baxış</div>
     <div class="container">
+        <div class="card"><i class="fa-solid fa-play tk"></i><h3>1.000 Baxış</h3><div class="price">0.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-1000-Baxish">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-play tk"></i><h3>3.000 Baxış</h3><div class="price">2.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-3000-Baxish">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-play tk"></i><h3>5.000 Baxış</h3><div class="price">3.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-5000-Baxish">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-play tk"></i><h3>10.000 Baxış</h3><div class="price">5.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-10000-Baxish">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-play tk"></i><h3>20.000 Baxış</h3><div class="price">7.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-20000-Baxish">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-play tk"></i><h3>50.000 Baxış</h3><div class="price">9.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-50000-Baxish">SİFARİŞ ET</a></div>
         <div class="card"><i class="fa-solid fa-play tk"></i><h3>100.000 Baxış</h3><div class="price">15.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-100000-Baxish">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-play tk"></i><h3>500.000 Baxış</h3><div class="price">34.99 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TT-500000-Baxish">SİFARİŞ ET</a></div>
     </div>
 </div>
 
-<div id="youtube" class="platform-content" style="display:none;">
+<div id="youtube" class="platform-content">
     <div class="section-title">YouTube Baxış</div>
     <div class="container">
-        <div class="card"><i class="fa-brands fa-youtube yt"></i><h3>1.000 Baxış</h3><div class="price">10 AZN</div><a class="btn" href="https://wa.me/994709006777?text=YT-1000-Baxish">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-brands fa-youtube yt"></i><h3>5.000 Baxış</h3><div class="price">40 AZN</div><a class="btn" href="https://wa.me/994709006777?text=YT-5000-Baxish">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-brands fa-youtube yt"></i><h3>10.000 Baxış</h3><div class="price">80 AZN</div><a class="btn" href="https://wa.me/994709006777?text=YT-10000-Baxish">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-brands fa-youtube yt-c"></i><h3>1.000 Baxış</h3><div class="price">10 AZN</div><a class="btn" href="https://wa.me/994709006777?text=YT-1000-Baxish">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-brands fa-youtube yt-c"></i><h3>2.000 Baxış</h3><div class="price">18 AZN</div><a class="btn" href="https://wa.me/994709006777?text=YT-2000-Baxish">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-brands fa-youtube yt-c"></i><h3>3.000 Baxış</h3><div class="price">27 AZN</div><a class="btn" href="https://wa.me/994709006777?text=YT-3000-Baxish">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-brands fa-youtube yt-c"></i><h3>5.000 Baxış</h3><div class="price">40 AZN</div><a class="btn" href="https://wa.me/994709006777?text=YT-5000-Baxish">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-brands fa-youtube yt-c"></i><h3>10.000 Baxış</h3><div class="price">80 AZN</div><a class="btn" href="https://wa.me/994709006777?text=YT-10000-Baxish">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-brands fa-youtube yt-c"></i><h3>50.000 Baxış</h3><div class="price">170 AZN</div><a class="btn" href="https://wa.me/994709006777?text=YT-50000-Baxish">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-brands fa-youtube yt-c"></i><h3>100.000 Baxış</h3><div class="price">250 AZN</div><a class="btn" href="https://wa.me/994709006777?text=YT-100000-Baxish">SİFARİŞ ET</a></div>
     </div>
+
     <div class="section-title">YouTube Like</div>
     <div class="container">
-        <div class="card"><i class="fa-solid fa-thumbs-up heart"></i><h3>1.000 Like</h3><div class="price">3 AZN</div><a class="btn" href="https://wa.me/994709006777?text=YT-1000-Like">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-thumbs-up yt-c"></i><h3>1.000 Like</h3><div class="price">3 AZN</div><a class="btn" href="https://wa.me/994709006777?text=YT-1000-Like">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-thumbs-up yt-c"></i><h3>2.000 Like</h3><div class="price">5 AZN</div><a class="btn" href="https://wa.me/994709006777?text=YT-2000-Like">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-thumbs-up yt-c"></i><h3>3.000 Like</h3><div class="price">7 AZN</div><a class="btn" href="https://wa.me/994709006777?text=YT-3000-Like">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-thumbs-up yt-c"></i><h3>5.000 Like</h3><div class="price">9 AZN</div><a class="btn" href="https://wa.me/994709006777?text=YT-5000-Like">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-thumbs-up yt-c"></i><h3>10.000 Like</h3><div class="price">25 AZN</div><a class="btn" href="https://wa.me/994709006777?text=YT-10000-Like">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-thumbs-up yt-c"></i><h3>50.000 Like</h3><div class="price">100 AZN</div><a class="btn" href="https://wa.me/994709006777?text=YT-50000-Like">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-solid fa-thumbs-up yt-c"></i><h3>100.000 Like</h3><div class="price">300 AZN</div><a class="btn" href="https://wa.me/994709006777?text=YT-100000-Like">SİFARİŞ ET</a></div>
     </div>
 </div>
 
-<div id="telegram" class="platform-content" style="display:none;">
+<div id="telegram" class="platform-content">
     <div class="section-title">Telegram Abunə</div>
     <div class="container">
-        <div class="card"><i class="fa-brands fa-telegram tg"></i><h3>1.000 Abunə</h3><div class="price">7 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TG-1000-Abone">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-brands fa-telegram tg"></i><h3>5.000 Abunə</h3><div class="price">30 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TG-5000-Abone">SİFARİŞ ET</a></div>
-        <div class="card"><i class="fa-brands fa-telegram tg"></i><h3>10.000 Abunə</h3><div class="price">55 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TG-10000-Abone">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-brands fa-telegram tg-c"></i><h3>1.000 Abunə</h3><div class="price">7 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TG-1000-Abone">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-brands fa-telegram tg-c"></i><h3>2.000 Abunə</h3><div class="price">14 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TG-2000-Abone">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-brands fa-telegram tg-c"></i><h3>3.000 Abunə</h3><div class="price">21 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TG-3000-Abone">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-brands fa-telegram tg-c"></i><h3>5.000 Abunə</h3><div class="price">30 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TG-5000-Abone">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-brands fa-telegram tg-c"></i><h3>10.000 Abunə</h3><div class="price">55 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TG-10000-Abone">SİFARİŞ ET</a></div>
+        <div class="card"><i class="fa-brands fa-telegram tg-c"></i><h3>50.000 Abunə</h3><div class="price">195 AZN</div><a class="btn" href="https://wa.me/994709006777?text=TG-50000-Abone">SİFARİŞ ET</a></div>
     </div>
 </div>
 
-<footer>© 2026 Takibcial.com • Müəllif hüquqları qorunur.</footer>
+<footer>©Copyright Sayt Cavid Abbaslı tərəfindən qorunur 2026 Takibcial.com</footer>
 
 <script>
 function showPlatform(id,el){
-    document.querySelectorAll('.platform-content').forEach(c=>c.style.display='none');
+    document.querySelectorAll('.platform-content').forEach(c=>c.classList.remove('active'));
     document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-    document.getElementById(id).style.display='block';
+    document.getElementById(id).classList.add('active');
     el.classList.add('active');
 }
 
@@ -331,36 +347,56 @@ const wheel=document.getElementById('wheel');
 const msg=document.getElementById('wheel-msg');
 const btnSpin=document.getElementById('spin-btn');
 
+const prizes=[
+    {t:"3%",d:1830},{t:"5%",d:1890},{t:"10%",d:1950},
+    {t:"7%",d:2010},{t:"20%",d:2070},{t:"15%",d:2130}
+];
+
+window.onload = function() {
+    if(localStorage.getItem('wheelUsed')){
+        msg.innerText = "Sizin endiriminiz aktivdir!";
+        btnSpin.style.display = 'none';
+    }
+}
+
 function spin(){
     if(localStorage.getItem('wheelUsed')) return;
-    const deg = 1800 + Math.random() * 1000;
-    wheel.style.transform=`rotate(${deg}deg)`;
+    const p=prizes[Math.floor(Math.random()*prizes.length)];
+    wheel.style.transform=`rotate(${p.d}deg)`;
+    btnSpin.disabled = true;
     btnSpin.innerText = "Fırlanır...";
+    
     setTimeout(()=>{
-        msg.innerText="Təbriklər! Endiriminiz qeydə alındı!";
+        msg.innerText="Təbriklər! Qazandınız: "+p.t+" endirim";
         localStorage.setItem('wheelUsed',1);
         btnSpin.style.display = 'none';
-        alert("Sizə özəl 10% endirim! Sifariş zamanı kodu deyin: PRIME10");
+        alert("Sizin " + p.t + " endiriminiz qeydə alındı!");
     },4000);
 }
 
 // NOTIFICATION LOGIC
-const names = ["Ayxan001", "H3seyn_off", "Nigar.7", "Elvin_044", "Leyla.E", "Murad.Kh", "Aysel_S", "Kənan_M", "Fidan_A", "Zaur_Off"];
-const services = ["10.000 Takibçi", "50.000 Baxış", "1.000 Bəyəni", "Telegram Abunə"];
+const names = ["Ayxan001", "H3seyn_official", "Nigar777", "Elvin044", "Leyla.elyva", "Murad khalilov", "Aysel.shukurova", "Kənan.mustafayev", "Fidan.abbasova", "Rəşad.bagiyev", "Zaurisayev_official", "mva.Günel"];
+const services = ["10000 Takibçi", "50.000 Baxış", "1.000 Bəyəni", "500.000 Baxış", "3.000 Takibçi"];
 
 function showNotify() {
     const toast = document.getElementById('live-toast');
     const text = document.getElementById('toast-text');
+    if(!toast || !text) return;
+
     const name = names[Math.floor(Math.random() * names.length)];
     const service = services[Math.floor(Math.random() * services.length)];
-    text.innerHTML = `<b>${name}</b> az öncə <b>${service}</b> sifariş etdi!`;
+
+    text.innerHTML = `<b>${name}</b> az öncə <b>${service}</b> sifarişi etdi!`;
     toast.classList.add('active');
-    setTimeout(() => toast.classList.remove('active'), 4000);
+
+    setTimeout(() => {
+        toast.classList.remove('active');
+    }, 4000);
 }
 
 window.addEventListener('load', () => {
-    setTimeout(showNotify, 3000);
-    setInterval(showNotify, 10000);
+    setTimeout(showNotify, 2000);
+    setInterval(showNotify, 8000);
 });
 </script>
 
