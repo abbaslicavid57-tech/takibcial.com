@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="az">
 <head>
@@ -221,6 +220,9 @@ nav {
     margin-top: 15px;
     font-size: 14px;
     color: var(--neon-blue);
+    line-height: 1.5;
+    font-weight: 600;
+    text-shadow: 0 0 5px rgba(0, 242, 255, 0.3);
 }
 
 /* ================= CARDS & GRID ================= */
@@ -370,9 +372,61 @@ footer {
     border-top: 1px solid rgba(255,255,255,0.05);
 }
 
+/* ================= YENİ ƏLAVƏ EDİLƏN STATİSTİKA PANELİ ================= */
+#smm-stats {
+    position: fixed;
+    top: 60px; /* Header-in altında dursun deyə bir az aşağı */
+    right: 20px;
+    background: rgba(10, 15, 25, 0.85); /* Saytın tonuna uyğun tünd */
+    backdrop-filter: blur(12px);
+    color: #fff;
+    padding: 14px 18px;
+    border-radius: 12px;
+    font-size: 13px;
+    line-height: 1.8;
+    box-shadow: 0 0 20px rgba(0, 242, 255, 0.15); /* Neon kölgə */
+    border: 1px solid rgba(0, 242, 255, 0.2); /* Neon haşiyə */
+    z-index: 9998;
+    min-width: 220px;
+    transition: all 0.3s ease;
+}
+
+#smm-stats div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 2px 0;
+}
+#smm-stats div:last-child {
+    border-bottom: none;
+}
+
+#smm-stats b {
+    color: var(--neon-green);
+    font-weight: 700;
+    text-shadow: 0 0 5px rgba(0, 255, 153, 0.4);
+    margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+    #smm-stats {
+        position: relative;
+        top: 0;
+        right: 0;
+        margin: 15px auto;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
 </style>
 </head>
 <body>
+
+<audio id="spinSound" src="spin-sound.mp3"></audio>
 
 <div class="news-ticker">
     <div class="ticker-wrap">
@@ -382,6 +436,12 @@ footer {
     </div>
 </div>
 
+<div id="smm-stats">
+    <div><span>⭐ Reytinq:</span> <b>100%</b></div>
+    <div><span>📦 Sifarişlər:</span> <b id="totalOrders">1,254,300</b></div>
+    <div><span>👥 İstifadəçilər:</span> <b id="totalUsers">726,627</b></div>
+    <div><span>🟢 Online:</span> <b id="onlineUsers">8,500</b></div>
+</div>
 <header>
     <div class="brand-title">💎 Takibcial</div>
 </header>
@@ -413,8 +473,8 @@ footer {
             <div class="segment-text" style="transform: rotate(330deg)"><span>15%</span></div>
         </div>
     </div>
-    <button id="spin-btn" onclick="spinWheel()">Endirim Qazan</button>
-    <p id="wheel-msg">Hər istifadəçi yalnız 1 dəfə fırlada bilər!</p>
+    <button id="spin-btn">Endirim Qazan</button>
+    <p id="wheel-msg">Hər 24 saatdan bir şansını yoxla!</p>
 </div>
 
 <div id="live-toast">
@@ -540,84 +600,61 @@ footer {
 <script>
 // --- TABS FUNKSİONALLIĞI ---
 function showPlatform(id, el){
-    // Bütün aktiv klassları sil
     document.querySelectorAll('.platform-content').forEach(c => c.classList.remove('active'));
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    
-    // Seçiləni aktiv et
     document.getElementById(id).classList.add('active');
     el.classList.add('active');
 }
 
-// --- ÇARX (WHEEL) MƏNTİQİ (Yenilənmiş) ---
-const wheel = document.getElementById('wheel');
-const msg = document.getElementById('wheel-msg');
-const btnSpin = document.getElementById('spin-btn');
+// --- YENİ STATİSTİKA PANELİ FUNKSİONALLIĞI ---
+(function() {
+    let totalOrders = 1254300;
+    let totalUsers = 726627;
+    let lastOnline = 0;
+    let lastIncrease = 0;
 
-/* Çarxın dilimləri (Sağdan başlayaraq saat əqrəbi istiqamətində):
-  0-60 dərəcə: Pink (3%)
-  60-120 dərəcə: Blue (5%)
-  120-180 dərəcə: Green (10%)
-  180-240 dərəcə: Yellow (7%)
-  240-300 dərəcə: Purple (20%)
-  300-360 dərəcə: Orange (15%)
-  
-  Göstərici yuxarıda (0 dərəcə) olduğu üçün, çarxı saat əqrəbi istiqamətində fırladanda,
-  yuxarıya çatan dilimi hesablamaq lazımdır.
-  Məsələn: 5% (Blue) qazanmaq üçün, çarx elə dayanmalıdır ki, Blue dilimi yuxarı baxsın.
-*/
+    const fmt = (num) => num.toLocaleString("en-US");
 
-const segments = [
-    { label: "3% Endirim", color: "Pink", minDeg: 0, maxDeg: 60 },
-    { label: "5% Endirim", color: "Blue", minDeg: 60, maxDeg: 120 },
-    { label: "10% Endirim", color: "Green", minDeg: 120, maxDeg: 180 },
-    { label: "7% Endirim", color: "Yellow", minDeg: 180, maxDeg: 240 },
-    { label: "20% Endirim", color: "Purple", minDeg: 240, maxDeg: 300 },
-    { label: "15% Endirim", color: "Orange", minDeg: 300, maxDeg: 360 }
-];
-
-window.onload = function() {
-    if(localStorage.getItem('wheelUsed')){
-        btnSpin.disabled = true;
-        btnSpin.style.display = 'none';
-        msg.innerHTML = "Siz şansınızı artıq istifadə etmisiniz. <br> Endirim kodunuz aktivdir.";
+    function getRandomDifferent(min, max, lastVal) {
+        let val;
+        do { val = Math.floor(Math.random() * (max - min + 1)) + min; } while (val === lastVal);
+        return val;
     }
-}
 
-function spinWheel() {
-    if(localStorage.getItem('wheelUsed')) return;
+    // 1. Online: Dalğalanma
+    function updateFastStats() {
+        // Online: 8000-12000 arası
+        let newOnline = getRandomDifferent(8000, 12000, lastOnline);
+        lastOnline = newOnline;
+        const onlineEl = document.getElementById("onlineUsers");
+        if(onlineEl) onlineEl.innerText = fmt(newOnline);
 
-    // Təsadüfi bir dərəcə seçirik (Minimum 5 tam dövrə + təsadüfi bucaq)
-    const extraSpins = 360 * 6; // 6 tam dövrə
-    const randomDegree = Math.floor(Math.random() * 360);
-    const totalRotation = extraSpins + randomDegree;
-    
-    // Fırlatma
-    wheel.style.transform = `rotate(-${totalRotation}deg)`; // Əks istiqamətə fırladırıq ki, məntiq düz olsun
-    btnSpin.disabled = true;
-    btnSpin.innerText = "Fırlanır...";
+        // Sifarişlər: +3 ilə +25 arası
+        let increase = getRandomDifferent(3, 25, lastIncrease);
+        lastIncrease = increase;
+        totalOrders += increase;
+        const orderEl = document.getElementById("totalOrders");
+        if(orderEl) orderEl.innerText = fmt(totalOrders);
+    }
 
-    // Qalibi hesablamaq (Tərs fırlanma olduğu üçün modulu götürürük)
-    // 360 - (totalRotation % 360) bizə oxun hansı bucaqda dayandığını verir
-    const finalAngle = (totalRotation % 360);
-    
-    // Hansı seqmentə düşdüyünü tapmaq
-    // Segmentlər saat əqrəbi istiqamətində düzülüb. 0-da Pointer var.
-    // Əgər 30 dərəcə sola fırlatsaq (rotate(-30)), 30 dərəcədəki seqment oxa gələr.
-    const winningSegment = segments.find(seg => finalAngle >= seg.minDeg && finalAngle < seg.maxDeg);
+    // 2. İstifadəçilər: Hər 3 dəqiqədən bir +2 və ya +3
+    function updateTotalUsers() {
+        totalUsers += (Math.random() < 0.5 ? 2 : 3);
+        const userEl = document.getElementById("totalUsers");
+        if(userEl) userEl.innerText = fmt(totalUsers);
+    }
 
-    setTimeout(() => {
-        msg.innerHTML = `🎉 Təbriklər! Siz <b>${winningSegment.label}</b> qazandınız!`;
-        localStorage.setItem('wheelUsed', 1);
-        btnSpin.style.display = 'none';
-        
-        // Konfeti effekti (sadə alert yerinə gözəl bildiriş)
-        showToastNotification(`Təbriklər! ${winningSegment.label} əldə olundu!`);
-    }, 5000); // CSS transition vaxtı ilə eyni olmalıdır
-}
+    // İlkin yükləmə
+    window.addEventListener('load', () => {
+        updateFastStats();
+        if(document.getElementById("totalUsers")) document.getElementById("totalUsers").innerText = fmt(totalUsers);
+    });
 
+    setInterval(updateFastStats, 3000);    // Hər 3 saniyə
+    setInterval(updateTotalUsers, 180000); // Hər 3 dəqiqə (180s)
+})();
 
-// --- CANLI BİLDİRİŞ SİSTEMİ (Təkmilləşdirilmiş) ---
+// --- CANLI BİLDİRİŞ SİSTEMİ ---
 const names = ["Ayxan_007", "Aysel.M", "Kenan_Vip", "Nigar.Official", "Elvin_SMM", "Murad.Baku", "Leyla_Design", "Rashad.T", "Gunel_99", "Zaur.B", "Fidan_Art", "Resul.K"];
 const services = ["10.000 Takibçi", "5.000 Bəyəni", "100.000 Baxış", "1.000 Abunə", "2.000 Takibçi", "50.000 Baxış", "20.000 Bəyəni"];
 
@@ -640,12 +677,66 @@ function showToastNotification(customMessage = null) {
     }, 4000);
 }
 
-// Avtomatik bildirişlər
 window.addEventListener('load', () => {
-    // İlk bildiriş 3 saniyə sonra
     setTimeout(showToastNotification, 3000);
-    // Sonra hər 12 saniyədən bir
     setInterval(showToastNotification, 12000);
+});
+
+// --- YENİ SPIN ÇARX MƏNTİQİ (SƏS İLƏ BİRLİKDƏ) ---
+const wheel = document.getElementById('wheel');
+const spinBtn = document.getElementById('spin-btn');
+const msg = document.getElementById('wheel-msg');
+const spinSound = document.getElementById('spinSound');
+
+const discounts = [
+    { deg: 18, text: "10%" },
+    { deg: 54, text: "5%" },
+    { deg: 90, text: "15%" },
+    { deg: 126, text: "20%" },
+    { deg: 162, text: "25%" },
+    { deg: 198, text: "5%" },
+    { deg: 234, text: "10%" },
+    { deg: 270, text: "10%" },
+    { deg: 306, text: "5%" },
+    { deg: 342, text: "10%" }
+];
+
+// Səhifə yüklənəndə 24 saat yoxlanışı
+window.addEventListener('DOMContentLoaded', () => {
+    const lastSpin = localStorage.getItem('lastSpinTime');
+    const now = Date.now();
+    if (lastSpin && now - lastSpin < 24*60*60*1000) {
+        spinBtn.style.display = 'none';
+        msg.innerHTML = `Gündəlik haqqınızdan istifadə etmisiniz.`;
+    }
+});
+
+spinBtn.addEventListener('click', () => {
+    const lastSpin = localStorage.getItem('lastSpinTime');
+    const now = Date.now();
+    if (lastSpin && now - lastSpin < 24*60*60*1000) {
+        const hoursLeft = Math.ceil((24*60*60*1000 - (now - lastSpin)) / 3600000);
+        alert(`Bir gün ərzində bir dəfə spin edə bilərsiniz. ${hoursLeft} saatdan sonra yenidən cəhd edin.`);
+        return;
+    }
+
+    spinSound.currentTime = 0;
+    spinSound.play();
+
+    const selected = discounts[Math.floor(Math.random() * discounts.length)];
+    const targetDeg = 360 * 10 + selected.deg;
+
+    wheel.style.transition = 'transform 5s cubic-bezier(0.25, 0.1, 0.25, 1)';
+    wheel.style.transform = `rotate(-${targetDeg}deg)`;
+    spinBtn.disabled = true;
+    spinBtn.innerText = "Fırlanır...";
+
+    setTimeout(() => {
+        localStorage.setItem('lastSpinTime', Date.now());
+        msg.innerHTML = `🎉 Təbriklər! <b style="color:#00ff99">${selected.text} endirim qazandınız!</b>`;
+        spinBtn.style.display = 'none';
+        showToastNotification(`Təbriklər! ${selected.text} Endirim qazandınız!`);
+    }, 5000);
 });
 </script>
 
